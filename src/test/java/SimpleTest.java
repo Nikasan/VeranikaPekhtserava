@@ -23,12 +23,12 @@ public class SimpleTest {
 
   driver.findElement(By.cssSelector("[id='user-icon']")).click();
   driver.findElement(By.cssSelector("[id='name']")).sendKeys("Veranika_Pekhtserava@epam.com");
-  driver.findElement(By.cssSelector("[id='password']")).sendKeys("Yarik|Forest%)&");
+  driver.findElement(By.cssSelector("[id='password']")).sendKeys("1234");
   driver.findElement(By.cssSelector("[id='login-button']")).click();
 
 
 
         //4
-        driver.close();
+       // driver.close();
     }
 }
