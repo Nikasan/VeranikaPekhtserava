@@ -1,0 +1,34 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+import static org.testng.Assert.assertEquals;
+
+public class SimpleTest {
+    @Test
+    public  void simpleTest(){
+
+        //1
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        String s = driver.getWindowHandle();
+        driver.switchTo().window(s);
+
+        //2
+        driver.navigate().to("http://epam.github.io/JDI/index.html");
+
+        //3
+        assertEquals(driver.getTitle(),"Home Page");
+
+
+  driver.findElement(By.cssSelector("[id='user-icon']")).click();
+  driver.findElement(By.cssSelector("[id='name']")).sendKeys("Veranika_Pekhtserava@epam.com");
+  driver.findElement(By.cssSelector("[id='password']")).sendKeys("Yarik|Forest%)&");
+  driver.findElement(By.cssSelector("[id='login-button']")).click();
+
+
+
+        //4
+        driver.close();
+    }
+}
