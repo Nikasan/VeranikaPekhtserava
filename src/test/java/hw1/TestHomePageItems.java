@@ -13,6 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class TestHomePageItems {
 
@@ -36,14 +37,14 @@ public class TestHomePageItems {
         driver.manage().window().maximize();
     }
 
-//    @AfterMethod
-//    public void afterMethod() {
-//        driver.close();
-//    }
+    @AfterMethod
+    public void closeDriver() {
+        driver.close();
+    }
 
     //
     @Test
-    public void TestHomePageItems() {
+    public void TestHomePageItemsHW1() {
 
         driver.navigate().to("http://epam.github.io/JDI/index.html");
         driver.findElement(By.cssSelector("[id='user-icon']")).click();
@@ -69,8 +70,48 @@ public class TestHomePageItems {
         }
         assertEquals(itemsNamesActual, itemNamesExpected);
 
-        // System.out.println(itemsName.get(0).getText());
+        //7 Assert that there are 4 images on the Index Page and they are displayed
+        //List<WebElement> imgIndexPage = driver.findElements(By.tagName("img")); Спросить у преподавателя
 
+
+       List<WebElement> imageElements = driver.findElements(By.xpath("//div[@class='benefit' and 1]/div[@class='benefit-icon' and 1]"));
+        assertEquals(imageElements.size(),4);
+
+       for (int i = 0; i < imageElements.size(); i++) {
+            assertTrue(imageElements.get(i).isDisplayed());
+        }
+
+
+       //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
+
+        List<String> underIconsTextsEXpected = Arrays.asList(
+                "To include good practices\n" +
+                        "and ideas from successful\n" +
+                        "EPAM project",
+                "To be flexible and\n" +
+                        "customizable",
+                "To be multiplatform",
+                "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
+        List<WebElement> benefirIconTxt = driver.findElements(By.xpath("//div[@class='benefit' and 1]/span[@class='benefit-txt' and 1]"));
+        List<String> underIconsTextsActual = new LinkedList<String>() ;
+        for (WebElement element: benefirIconTxt) {
+            underIconsTextsActual.add(element.getText());
+        }
+        assertEquals(underIconsTextsActual,underIconsTextsEXpected);
+
+
+        //9 Assert a text of the main headers
+        //h3[@class='main-title text-center']
+        //p[@class='main-txt text-center']
+        String h3 = "EPAM FRAMEWORK WISHES…";
+        String mainHeader = "LOREM IPSUM DOLOR SIT AMET, ";
+        assertTrue(driver.findElement(By.xpath("//h3[@class='main-title text-center']")).getText().contains(h3));
+        assertTrue(driver.findElement(By.xpath("//p[@class='main-txt text-center']")).getText().contains(mainHeader));
+
+        //10 Assert that there is the iframe in the center of page
+
+        WebElement iframe = driver.findElement(By.tagName("iframe"));
+        assertTrue(iframe.isDisplayed());
 
     }
 }
