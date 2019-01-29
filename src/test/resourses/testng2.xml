@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestNg Suite" parallel="methods" thread-count ="3" verbose="2">
+
+    <test name = "run_only_regression">
+
+        <groups>
+            <run>
+                <include name = "Regression" />
+            </run>
+        </groups>
+
+        <packages>
+            <package name="hw2.*"/>
+        </packages>
+    </test>
+
+</suite>

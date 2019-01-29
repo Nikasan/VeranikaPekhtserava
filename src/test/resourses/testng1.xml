@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Smoke" parallel= "methods"   thread-count="3"  verbose="2">
+        <test name = "run_only_smoke">
+            <groups>
+                <run>
+                    <include name = "Smoke" />
+                </run>
+            </groups>
+            <packages>
+                <package name="hw2.*"/>
+            </packages>
+        </test>
+
+</suite>
