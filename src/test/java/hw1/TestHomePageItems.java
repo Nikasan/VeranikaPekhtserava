@@ -74,16 +74,17 @@ public class TestHomePageItems extends SeleniumBase {
 
         List<WebElement> itemsName = driver.findElements(By.xpath("//ul[@class='uui-navigation nav navbar-nav m-l8']/li/a"));
         assertEquals(itemsName.size(), 4);
-
+//!!! missed check if elements are displayed
         List<String> itemNamesExpected = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
         List<String> itemsNamesActual = new LinkedList<String>();
         for (WebElement element : itemsName) {
             itemsNamesActual.add(element.getText());
         }
+        //we don't use asserts for list because if it fails log wouldn't show what text is differ from expected, use text of elements for assert
         assertEquals(itemsNamesActual, itemNamesExpected);
 
         //7 Assert that there are 4 images on the Index Page and they are displayed
-
+        //!!!xpath too long, you can make it shorter, even use CSS
         List<WebElement> imageElements = driver.findElements(By.xpath("//div[@class='benefit' and 1]/div[@class='benefit-icon' and 1]"));
         assertEquals(imageElements.size(), 4);
 
@@ -101,17 +102,20 @@ public class TestHomePageItems extends SeleniumBase {
                         "customizable",
                 "To be multiplatform",
                 "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
+        //!!!xpath too long, you can make it shorter, even use CSS
         List<WebElement> benefirIconTxt = driver.findElements(By.xpath("//div[@class='benefit' and 1]/span[@class='benefit-txt' and 1]"));
         List<String> underIconsTextsActual = new LinkedList<String>();
         for (WebElement element : benefirIconTxt) {
             underIconsTextsActual.add(element.getText());
         }
+        //we don't use asserts for list because if it fails log wouldn't show what text is differ from expected, use text of elements for assert
         assertEquals(underIconsTextsActual, underIconsTextsEXpected);
 
         //9 Assert a text of the main headers
 
         String h3 = "EPAM FRAMEWORK WISHES…";
         String mainHeader = "LOREM IPSUM DOLOR SIT AMET, ";
+        //not CONTAINS but EQUALS
         assertTrue(driver.findElement(By.xpath("//h3[@class='main-title text-center']")).getText().contains(h3));
         assertTrue(driver.findElement(By.xpath("//p[@class='main-txt text-center']")).getText().contains(mainHeader));
 
@@ -122,9 +126,10 @@ public class TestHomePageItems extends SeleniumBase {
 
         //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
 
-
+//why you have 2 elements for iframe? You shoulduse one common element
         WebElement iframeSwitch = driver.findElement(By.id("iframe"));
         driver.switchTo().frame(iframeSwitch);
+        //don't use System.out.println
         System.out.println("Switched");
         //assertTrue(driver.findElement(By.xpath("html/body/header/div/nav/div[2]")).isDisplayed());
         //assertTrue(driver.findElement(By.id("epam_logo")).isDisplayed());
@@ -135,6 +140,8 @@ public class TestHomePageItems extends SeleniumBase {
         driver.switchTo().defaultContent();
 
         //13.Assert a text of the sub header
+        //use camelCase for variables names
+        //avoid to use indexes in selectors
         WebElement jdi_github_link = driver.findElement(By.cssSelector("h3.text-center:nth-child(3) > a:nth-child(1)"));
         assertEquals(jdi_github_link.getText(), "JDI GITHUB");
 
@@ -143,11 +150,11 @@ public class TestHomePageItems extends SeleniumBase {
         assertEquals(jdi_github_link.getAttribute("href"), "https://github.com/epam/JDI");
 
         //15.Assert that there is Left Section
-
+        //avoid to use indexes in selectors
         assertTrue(driver.findElement(By.cssSelector(".uui-side-bar > div:nth-child(1)")).isDisplayed());
 
         //16.Assert that there is Footer
-
+        //avoid to use indexes in selectors
         assertTrue(driver.findElement(By.cssSelector("body > footer:nth-child(3)")).isDisplayed());
 
     }
