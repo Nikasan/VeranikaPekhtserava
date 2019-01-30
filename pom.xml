@@ -23,6 +23,7 @@
         <artifactId>selenium-java</artifactId>
         <version>3.141.59</version>
     </dependency>
+    <!-- TODO Is this required have 2 versions of TestNg -->
     <dependency>
         <groupId>org.testng</groupId>
         <artifactId>testng</artifactId>

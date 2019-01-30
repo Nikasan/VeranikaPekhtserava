@@ -20,6 +20,13 @@ import static java.lang.System.setProperty;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+/* TODO
+    1. please try fix here Alexey comments for HW1
+    2. please try avoid huge amount of empty lines between comment and code lines.
+        It hard to read current style of code
+    3. Class has name not as described in Java Code Convention
+    4. Class located not in package as described in requirements
+ */
 public class ex2_1 extends SeleniumBase {
 
     @Test(groups = "Smoke")
@@ -71,6 +78,7 @@ public class ex2_1 extends SeleniumBase {
         List<WebElement> imageElements = driver.findElements(By.xpath("//div[@class='benefit' and 1]/div[@class='benefit-icon' and 1]"));
         assertEquals(imageElements.size(), 4);
 
+        // TODO this loop could be replaced. Check for other test in current class
         for (int i = 0; i < imageElements.size(); i++) {
             assertTrue(imageElements.get(i).isDisplayed());
         }
@@ -86,6 +94,7 @@ public class ex2_1 extends SeleniumBase {
                 "To be multiplatform",
                 "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
         List<WebElement> benefirIconTxt = driver.findElements(By.xpath("//div[@class='benefit' and 1]/span[@class='benefit-txt' and 1]"));
+        // TODO Why you decide use here linked list?
         List<String> underIconsTextsActual = new LinkedList<String>();
         for (WebElement element : benefirIconTxt) {
             underIconsTextsActual.add(element.getText());

@@ -13,6 +13,13 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+/* TODO
+    1. please try fix here Alexey comments for HW1
+    2. please try avoid huge amount of empty lines between comment and code lines.
+        It hard to read current style of code
+    3. Class has name not as described in Java Code Convention
+    4. Class located not in package as described in requirements
+ */
 public class ex2_4 extends SeleniumBase {
 
     @Test(groups = {"Smoke","Regression"})

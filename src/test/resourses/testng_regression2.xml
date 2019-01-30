@@ -1,6 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
+<!-- TODO empty line not required here -->
+<!-- TODO The suite name is not correlated with group name -->
 <suite name="Smoke" parallel= "methods"   thread-count="3"  verbose="2">
+    <!-- TODO Test name is not correlated with group name
+            please be carefully with copy/paste operations -->
     <test name = "run_only_smoke">
         <groups>
             <run>

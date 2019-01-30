@@ -14,11 +14,20 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+/* TODO
+    1. please try fix here Alexey comments for HW1
+    2. please try avoid huge amount of empty lines between comment and code lines.
+        It hard to read current style of code
+    3. Class has name not as described in Java Code Convention
+    4. Class located not in package as described in requirements
+ */
 public class ex3 extends SeleniumBase {
+    // TODO empty lines
 
 
     private WebDriver driver;
 
+    // TODO Why you decide create driver instance in BeforeClass?
     @BeforeClass
     public void beforeClass() {
         driver = new ChromeDriver();
@@ -34,6 +43,7 @@ public class ex3 extends SeleniumBase {
         System.out.println(driver.getTitle());
     }
 
+    // TODO Why you decide close driver instance in AfterClass?
     @AfterClass
     public void afterClass() {
         driver.close();

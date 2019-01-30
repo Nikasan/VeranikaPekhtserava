@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+// TODO please check comments for the 1-st variant of 2_1 task
 public class ex2_2 extends SeleniumBase {
 
     private ChromeOptions options;
