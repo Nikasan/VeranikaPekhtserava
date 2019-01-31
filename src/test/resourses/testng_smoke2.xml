@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
+<!-- TODO empty line not required here -->
 <suite name="Smoke" parallel= "methods"   thread-count="3"  verbose="2">
     <test name = "run_only_smoke">
         <groups>

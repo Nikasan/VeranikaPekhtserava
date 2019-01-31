@@ -1,6 +1,7 @@
 package hw2_2.hw2;
 
 public class DriverManager {
+    // TODO missing empty line
     private static ThreadLocal<DriverClass> driver = new ThreadLocal<DriverClass>();
 
     public static DriverClass getDriver() {
