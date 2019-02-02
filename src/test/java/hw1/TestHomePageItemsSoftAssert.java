@@ -160,5 +160,6 @@ public class TestHomePageItemsSoftAssert extends SeleniumBase {
         //16.Assert that there is Footer
 
         softAssert.assertTrue(driver.findElement(By.cssSelector(".footer-bg")).isDisplayed());
+        softAssert.assertAll();
     }
 }

@@ -4,7 +4,7 @@
     <test name = "run_only_smoke">
         <groups>
             <run>
-                <include name = "Smoke" />
+                <include name = "Smoke2" />
             </run>
         </groups>
         <packages>

@@ -2,8 +2,6 @@ package base;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-
-
 import static java.lang.System.setProperty;
 
 public class SeleniumBase {
@@ -12,7 +10,6 @@ public class SeleniumBase {
         setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
 
     }
-
     @AfterSuite
     public void afterSuit(){
         System.out.println("System.currentTimeMillis())= "+System.currentTimeMillis());

@@ -7,7 +7,7 @@
     <test name = "run_only_smoke">
         <groups>
             <run>
-                <include name = "Regression" />
+                <include name = "Regression2" />
             </run>
         </groups>
         <packages>

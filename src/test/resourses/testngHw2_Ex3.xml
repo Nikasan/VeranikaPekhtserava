@@ -1,12 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Exercise3" verbose="1">
-
     <test name="TestHomePageItemsHW1">
-
         <classes>
-            <class name="hw2.ex3"/>
+            <class name="hw2.ex3.SimpleTestHomePage"/>
         </classes>
-
     </test>
 </suite>
