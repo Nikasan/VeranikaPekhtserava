@@ -1,6 +1,5 @@
 package hw3;
 
-import hw3.Enums.BenefitsTextList;
 import hw3.Enums.User;
 import base.SeleniumBase;
 import hw3.Enums.NavigationBarItems;
@@ -10,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import static hw3.Enums.HomePageInfo.*;
 
 public class SimpleTestPO extends SeleniumBase {
@@ -30,9 +30,9 @@ public class SimpleTestPO extends SeleniumBase {
     }
 
     @Test
-    public void tests() {
+    public void SimpleTestHomePage() {
         //1 Open test site by URL
-        homePage.open(HOME_PAGE_URL);
+        homePage.open();
 
         //2 Assert Browser title
         homePage.checkTitle(HOME_PAGE_TITLE);
@@ -53,7 +53,8 @@ public class SimpleTestPO extends SeleniumBase {
         homePage.chekFourthImages();
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
-        homePage.chekTextUnderIcons(BenefitsTextList.values());
+        homePage.chekTextUnderIcons();
+        //BenefitsTextList.values()
 
         //9 Assert a text of the main headers
         homePage.chekTextOnMainHeaders(MAIN_HEADER_TITLE, MAIN_HEADER_TEXT);
@@ -62,7 +63,7 @@ public class SimpleTestPO extends SeleniumBase {
         homePage.IframeIsDisplayed();
 
         //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
-        homePage.chekIframeLogo();
+        homePage.checkIframeLogo();
 
         //12 Switch to original window back
         homePage.switchToDefaultContent();

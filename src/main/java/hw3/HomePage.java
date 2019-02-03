@@ -1,6 +1,5 @@
 package hw3;
 
-import hw3.Enums.BenefitsTextList;
 import hw3.Enums.HomePageInfo;
 import hw3.Enums.NavigationBarItems;
 import hw3.Enums.User;
@@ -8,10 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
+import org.testng.Assert;
 import java.util.List;
-import java.util.stream.Collectors;
-
+import static hw3.Enums.BenefitsTextList.*;
+import static hw3.Enums.HomePageInfo.HOME_PAGE_URL;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 
@@ -58,7 +57,7 @@ public class HomePage {
     @FindBy(css = "[name='jdi-text']")
     private WebElement jdiText;
 
-    @FindBy(css = "[id='iframe']")
+   @FindBy(css = "[id='iframe']")
     private WebElement iframe;
 
     @FindBy(css = "[class='text-center']")
@@ -81,8 +80,8 @@ public class HomePage {
         driver.switchTo().defaultContent();
     }
 
-    public void open(HomePageInfo url) {
-        driver.get(url.toString());
+    public void open() {
+        driver.get(HOME_PAGE_URL.toString());
     }
 
     public  void checkTitle(HomePageInfo title) {
@@ -114,12 +113,15 @@ public class HomePage {
         }
     }
 
-    public void chekTextUnderIcons(BenefitsTextList[] textUnderIcons) {
-        List<String> list = benefitText.stream().map(WebElement::getText).collect(Collectors.toList());
-        for (BenefitsTextList indexPageIconsData : textUnderIcons) {
-            assertTrue(list.contains(indexPageIconsData.toString()));
+    public void chekTextUnderIcons() {
+        Assert.assertEquals(benefitText.size(), 4);
+
+        Assert.assertEquals(driver.findElement(By.cssSelector("div.col-sm-3:nth-child(1)")).getText(),FIRST_ICON_TEXT.toString());
+        Assert.assertEquals(driver.findElement(By.cssSelector("div.col-sm-3:nth-child(2)")).getText(),SECOND_ICON_TEXT.toString());
+        Assert.assertEquals(driver.findElement(By.cssSelector("div.col-sm-3:nth-child(3)")).getText(),THIRD_ICON_TEXT.toString());
+        Assert.assertEquals(driver.findElement(By.cssSelector("div.col-sm-3:nth-child(4)")).getText(),FOURTH_ICON_TEXT.toString());
         }
-    }
+
 
     public void chekTextOnMainHeaders(HomePageInfo titleOnMainHeaders, HomePageInfo textOnMainHeaders) {
         assertTrue(mainTitle.isDisplayed());
@@ -132,7 +134,7 @@ public class HomePage {
         assertTrue(iframe.isDisplayed());
     }
 
-    public void chekIframeLogo() {
+    public void checkIframeLogo() {
         driver.switchTo().frame(iframe);
         assertTrue(driver.findElement(By.cssSelector("[id='epam_logo']")).isDisplayed());
     }
