@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+// TODO Please fix my comments from SimpleTestHomePage1 and answer to my questions
 public class SimpleTestHomePage3 extends SeleniumBase {
 
     @Test(groups = "Regression")
