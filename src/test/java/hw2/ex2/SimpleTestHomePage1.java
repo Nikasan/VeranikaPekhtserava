@@ -15,6 +15,7 @@ import static org.testng.Assert.assertTrue;
 public class SimpleTestHomePage1 extends SeleniumBase {
 
     @Test(groups = "Smoke")
+    // TODO Try to avoid using low-dash in class, method, variable names
     public void TestHomePageItemsHW1_1() {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -63,6 +64,7 @@ public class SimpleTestHomePage1 extends SeleniumBase {
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<WebElement> benefitIconTxt = driver.findElements(By.cssSelector(".benefit-txt"));
+        // TODO Why you decide use here linked list?
         List<String> underIconsTextsActual = new LinkedList<String>();
         for (WebElement element : benefitIconTxt) {
             underIconsTextsActual.add(element.getText());
@@ -93,6 +95,7 @@ public class SimpleTestHomePage1 extends SeleniumBase {
 
         //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
         driver.switchTo().frame("iframe");
+        // TODO Do not forget delete commented code lines
         //assertTrue(driver.findElement(By.xpath("html/body/header/div/nav/div[2]")).isDisplayed());
         //assertTrue(driver.findElement(By.id("epam_logo")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector(".epam-logo")).isDisplayed());

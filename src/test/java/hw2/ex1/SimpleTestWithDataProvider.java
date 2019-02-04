@@ -38,6 +38,7 @@ public class SimpleTestWithDataProvider extends SeleniumBase {
         };
     }
 
+    // TODO I suggest do not use @BeforeTest setting for driver initialization
     @BeforeTest
     public void beforeTest() {
         driver = new ChromeDriver();
@@ -45,15 +46,21 @@ public class SimpleTestWithDataProvider extends SeleniumBase {
         driver.manage().timeouts().pageLoadTimeout(10000, TimeUnit.MILLISECONDS);
     }
 
+    // TODO I suggest do not use @AfterTest setting for driver closing
     @AfterTest
     public void afterMethod() {
         driver.close();
     }
 
     @Test(dataProvider = "benefitItemText")
+        /* TODO
+            1. What is i means?
+            2. What is s means?
+     */
     public void checkItemsTexts(int i, String s) {
 
         //1 Open site
+        // TODO It could be moved to @BeforeMethod
         driver.navigate().to("https://epam.github.io/JDI/index.html");
 
         //2
