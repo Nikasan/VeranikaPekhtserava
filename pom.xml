@@ -45,8 +45,6 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src\test\resourses\SimpleTestRun_Regression.xml</suiteXmlFile>
                         <suiteXmlFile>src\test\resourses\SimpleTestRun_Smoke.xml</suiteXmlFile>
-                        <suiteXmlFile>src\test\resourses\testng_regression2.xml</suiteXmlFile>
-                        <suiteXmlFile>src\test\resourses\testng_smoke2.xml</suiteXmlFile>
                         <suiteXmlFile>src\test\resourses\testngHw2_Ex3.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
