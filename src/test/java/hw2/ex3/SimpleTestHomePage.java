@@ -133,3 +133,11 @@ public class SimpleTestHomePage extends SeleniumBase {
         assertTrue(driver.findElement(By.cssSelector(".footer-bg")).isDisplayed());
     }
 }
+
+//  @BeforeClass
+// I created driver in BeforeClass, because in @BeforeMethod I need to use them to manipulate browser window.
+// It can be created in beforeMethod, but I did it following HW instruction "Each annotation can contain the only 1 instruction."
+//@BeforeMethod ↑
+// @AfterMethod I add System.out.println(driver.getTitle() because I can't manipulate driver after closing.
+//@AfterClass I can close driver in afterMethod, if I opened it in beforeMethod. But It would be contrary to the instructions..
+// And I couldn't be manipulate driver after closing.

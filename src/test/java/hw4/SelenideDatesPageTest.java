@@ -1,25 +1,21 @@
-package classWork.lesson4;
+package hw4;
 
-import com.codeborne.selenide.Browsers;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.testng.annotations.BeforeSuite;
+import hw4.base.SelenideBase;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.close;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertEquals;
 
-public class SelenideSimpleTest {
+public class SelenideDatesPageTest extends SelenideBase {
+    private DatesPage datesPage;
 
-    @BeforeSuite
-    public void beforeSuit(){
-        Configuration.browser = Browsers.CHROME;
-        Configuration.pageLoadStrategy = "normal";
-        Configuration.timeout = 5000;
-        Configuration.pollingInterval = 5000;
-        Configuration.startMaximized=true;
+    @BeforeClass
+    public void beforeClass() {
+        datesPage = page(DatesPage.class);
     }
 
     @Test
@@ -41,5 +37,5 @@ public class SelenideSimpleTest {
         //5
         close();
     }
-}
 
+}

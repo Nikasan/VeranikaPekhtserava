@@ -1,6 +1,7 @@
-package hw2_2.hw2;
+package hw2.DriverFactory;
 
 public class DriverFactory {
+
     public static DriverClass createInstance() {
         return new DriverClass();
     }

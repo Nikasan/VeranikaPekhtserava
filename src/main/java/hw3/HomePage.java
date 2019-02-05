@@ -8,11 +8,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+
 import java.util.List;
 import static hw3.Enums.BenefitsTextList.*;
 import static hw3.Enums.HomePageInfo.HOME_PAGE_URL;
+import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
 
 public class HomePage {
 
