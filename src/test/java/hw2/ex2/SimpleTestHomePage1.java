@@ -77,7 +77,6 @@ public class SimpleTestHomePage1 extends SeleniumBase {
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<WebElement> benefitIconTxt = DriverManager.getDriver().getRemoteWebDriver().findElements(By.cssSelector(".benefit-txt"));
-        // TODO Why you decide use here linked list?
         List<String> underIconsTextsActual = new LinkedList<>();
         for (WebElement element : benefitIconTxt) {
             underIconsTextsActual.add(element.getText());

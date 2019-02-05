@@ -81,7 +81,7 @@ public class SimpleTestHomePage extends SeleniumBase {
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<WebElement> benefitIconTxt = driver.findElements(By.cssSelector(".benefit-txt"));
-        List<String> underIconsTextsActual = new LinkedList<String>();
+        List<String> underIconsTextsActual = new LinkedList<>();
         for (WebElement element : benefitIconTxt) {
             underIconsTextsActual.add(element.getText());
         }
@@ -111,8 +111,6 @@ public class SimpleTestHomePage extends SeleniumBase {
 
         //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
         driver.switchTo().frame("iframe");
-        //assertTrue(driver.findElement(By.xpath("html/body/header/div/nav/div[2]")).isDisplayed());
-        //assertTrue(driver.findElement(By.id("epam_logo")).isDisplayed());
         assertTrue(driver.findElement(By.cssSelector(".epam-logo")).isDisplayed());
 
         //12.Switch to original window back
