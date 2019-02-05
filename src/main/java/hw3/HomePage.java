@@ -100,21 +100,21 @@ public class HomePage {
         assertEquals(userName.getText(), user.name);
     }
 
-    public void chekFourthImages() {
+    public void checkFourthImages() {
         assertTrue(iconBase.isDisplayed());
         assertTrue(iconMulti.isDisplayed());
         assertTrue(iconPractise.isDisplayed());
         assertTrue(iconСustom.isDisplayed());
     }
 
-    public void chekItemsTexts(NavigationBarItems[] itemsText) {
+    public void checkItemsTexts(NavigationBarItems[] itemsText) {
         assertTrue(items.isDisplayed());
         for (NavigationBarItems item : itemsText) {
             assertTrue(items.getText().contains(item.toString()));
         }
     }
 
-    public void chekTextUnderIcons() {
+    public void checkTextUnderIcons() {
         Assert.assertEquals(benefitText.size(), 4);
 
         Assert.assertEquals(driver.findElement(By.cssSelector("div.col-sm-3:nth-child(1)")).getText(),FIRST_ICON_TEXT.toString());
@@ -124,7 +124,7 @@ public class HomePage {
         }
 
 
-    public void chekTextOnMainHeaders(HomePageInfo titleOnMainHeaders, HomePageInfo textOnMainHeaders) {
+    public void checkTextOnMainHeaders(HomePageInfo titleOnMainHeaders, HomePageInfo textOnMainHeaders) {
         assertTrue(mainTitle.isDisplayed());
         assertEquals(titleOnMainHeaders.toString(), mainTitle.getText());
         assertTrue(jdiText.isDisplayed());
@@ -140,12 +140,12 @@ public class HomePage {
         assertTrue(driver.findElement(By.cssSelector("[id='epam_logo']")).isDisplayed());
     }
 
-    public void chekTextOfSubHeader(HomePageInfo textOfTheSubHeader) {
+    public void checkTextOfSubHeader(HomePageInfo textOfTheSubHeader) {
         assertTrue(textCenter.isDisplayed());
         assertEquals(textCenter.getText(), textOfTheSubHeader.toString());
     }
 
-    public void chekJdiGit(HomePageInfo jdiGithubUrl) {
+    public void checkJdiGit(HomePageInfo jdiGithubUrl) {
         assertEquals(blank.getAttribute("href"), jdiGithubUrl.toString());
     }
 
