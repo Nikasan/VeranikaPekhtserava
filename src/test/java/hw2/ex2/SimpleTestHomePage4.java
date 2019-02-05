@@ -77,8 +77,7 @@ public class SimpleTestHomePage4 extends SeleniumBase {
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<WebElement> benefitIconTxt = DriverManager.getDriver().getRemoteWebDriver().findElements(By.cssSelector(".benefit-txt"));
-        // TODO Why you decide use here linked list?
-        List<String> underIconsTextsActual = new LinkedList<String>();
+        List<String> underIconsTextsActual = new LinkedList<>();
         for (WebElement element : benefitIconTxt) {
             underIconsTextsActual.add(element.getText());
         }
@@ -108,9 +107,7 @@ public class SimpleTestHomePage4 extends SeleniumBase {
 
         //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
         DriverManager.getDriver().getRemoteWebDriver().switchTo().frame("iframe");
-        // TODO Do not forget delete commented code lines
-        //assertTrue(DriverManager.getDriver().getRemoteWebDriver().findElement(By.xpath("html/body/header/div/nav/div[2]")).isDisplayed());
-        //assertTrue(DriverManager.getDriver().getRemoteWebDriver().findElement(By.id("epam_logo")).isDisplayed());
+
         assertTrue(DriverManager.getDriver().getRemoteWebDriver().findElement(By.cssSelector(".epam-logo")).isDisplayed());
 
         //12.Switch to original window back
@@ -205,8 +202,7 @@ public class SimpleTestHomePage4 extends SeleniumBase {
 
         //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
         DriverManager.getDriver().getRemoteWebDriver().switchTo().frame("iframe");
-        //assertTrue(DriverManager.getDriver().getRemoteWebDriver().findElement(By.xpath("html/body/header/div/nav/div[2]")).isDisplayed());
-        //assertTrue(DriverManager.getDriver().getRemoteWebDriver().findElement(By.id("epam_logo")).isDisplayed());
+
         assertTrue(DriverManager.getDriver().getRemoteWebDriver().findElement(By.cssSelector(".epam-logo")).isDisplayed());
 
         //12.Switch to original window back
@@ -300,8 +296,7 @@ public class SimpleTestHomePage4 extends SeleniumBase {
 
         //11 Switch to the iframe and check that there is Epam logo in the left top conner of iframe
         DriverManager.getDriver().getRemoteWebDriver().switchTo().frame("iframe");
-        //assertTrue(DriverManager.getDriver().getRemoteWebDriver().findElement(By.xpath("html/body/header/div/nav/div[2]")).isDisplayed());
-        //assertTrue(DriverManager.getDriver().getRemoteWebDriver().findElement(By.id("epam_logo")).isDisplayed());
+
         assertTrue(DriverManager.getDriver().getRemoteWebDriver().findElement(By.cssSelector(".epam-logo")).isDisplayed());
 
         //12.Switch to original window back
