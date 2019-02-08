@@ -5,6 +5,8 @@ import hw4.Enums.HomePageInfo;
 import hw4.Enums.differentElementsPage.CheckBoxesEnum;
 import hw4.Enums.differentElementsPage.RadioButtonEnum;
 import hw4.Enums.differentElementsPage.SelectEnum;
+import hw4.PageObjects.DifferentElementPage;
+import hw4.PageObjects.HomePage;
 import hw4.base.SelenideBase;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

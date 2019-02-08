@@ -1,4 +1,4 @@
-package hw4;
+package hw4.PageObjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
