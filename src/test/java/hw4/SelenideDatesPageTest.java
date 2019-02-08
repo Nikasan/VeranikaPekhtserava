@@ -1,41 +1,68 @@
 package hw4;
 
 import com.codeborne.selenide.Selenide;
+import hw4.Enums.HomePageInfo;
 import hw4.base.SelenideBase;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.testng.Assert.assertEquals;
+import static com.codeborne.selenide.Selenide.close;
+import static com.codeborne.selenide.Selenide.page;
+import static hw4.Enums.User.USER;
 
 public class SelenideDatesPageTest extends SelenideBase {
+    private HomePage servicePage;
     private DatesPage datesPage;
 
-    @BeforeClass
-    public void beforeClass() {
+    @BeforeMethod
+    public void beforeMethod() {
+        //1 Open test site by URL
+        Selenide.open(HomePageInfo.HOME_PAGE_URL.toString());
+        servicePage = page(HomePage.class);
         datesPage = page(DatesPage.class);
+
+        //2.Assert Browser title
+        servicePage.checkBrowserTitle();
+    }
+
+    @AfterMethod
+    public void afterMethod() {
+        close();
     }
 
     @Test
     public void simpleTest() {
+        //3.Perform login
+        servicePage.signIn(USER);
 
-        //2
-        Selenide.open("https://epam.github.io/JDI/index.html");
+        //4.Assert User name in the left-top side of screen that user is loggined
+        servicePage.checkUserIsLogged(USER);
 
-        //3
-        assertEquals(getWebDriver().getTitle(), "Home Page");
+        //5.Open through the header menu Service -> Different Elements Page
+        datesPage.open();
 
-        //4
-        $("[id='user-icon']").click();
-        $("[id='name']").sendKeys("epam");
-        $("[id='password']").sendKeys("1234");
-        $("[id='login-button']").click();
+        //6.Using drag-and-drop set Range sliders. left sliders - the most left position, right slider - the most rigth position
+        datesPage.moveSliders(0,100);
 
-        $("#user-name").shouldHave(text("PITER CHAILOVSKII"));
-        //5
-        close();
+        //7.Assert that for "From" and "To" sliders there are logs rows with corresponding values
+        datesPage.checkLog("0","100");
+
+        //8.Using drag-and-drop set Range sliders. left sliders - the most left position, right slider - the most left position and assert the log row
+         datesPage.moveSliders(0,0);
+
+         //9. Assert log row
+        datesPage.checkLog("0","0");
+
+        //10. Using drag-and-drop set Range sliders. left sliders - the most rigth position, right slider - the most right position and assert the log row
+        datesPage.moveSliders(100, 100);
+
+        //11. Assert log row
+        datesPage.checkLog("100","100");
+
+        //12.Using drag-and-drop set Range sliders.
+        datesPage.moveSliders(30, 70);
+
+        //13.Assert that for "From" and "To" sliders there are logs rows with corresponding values
+        datesPage.checkLog("30","70");
     }
-
 }
