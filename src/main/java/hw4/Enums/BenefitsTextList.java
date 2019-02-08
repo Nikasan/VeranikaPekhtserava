@@ -1,4 +1,6 @@
 package hw4.Enums;
+// TODO please check package name with Java Code Convention
+
 
 public enum BenefitsTextList {
     FIRST_ICON_TEXT("To include good practices\nand ideas from successful\nEPAM project"),

@@ -53,6 +53,7 @@ public class SimpleTestPO extends SeleniumBase {
         homePage.checkFourthImages();
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
+        // TODO This method should be parametrized
         homePage.checkTextUnderIcons();
         //BenefitsTextList.values()
 

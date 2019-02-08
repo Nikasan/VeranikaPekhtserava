@@ -85,7 +85,7 @@ public class HomePage {
         driver.get(HOME_PAGE_URL.toString());
     }
 
-    public  void checkTitle(HomePageInfo title) {
+    public  void  checkTitle(HomePageInfo title) {
         assertEquals(driver.getTitle(), title.toString());
     }
 
@@ -131,6 +131,7 @@ public class HomePage {
         assertEquals(textOnMainHeaders.toString(), jdiText.getText());
     }
 
+    // TODO Java code convetion
     public void IframeIsDisplayed() {
         assertTrue(iframe.isDisplayed());
     }
@@ -149,10 +150,12 @@ public class HomePage {
         assertEquals(blank.getAttribute("href"), jdiGithubUrl.toString());
     }
 
+    // TODO Java code convetion
     public void LeftSectionIsDisplayed() {
         assertTrue(leftSection.isDisplayed());
     }
 
+    // TODO Java code convetion
     public void FooterIsDisplayed() {
         assertTrue(footer.isDisplayed());
     }
