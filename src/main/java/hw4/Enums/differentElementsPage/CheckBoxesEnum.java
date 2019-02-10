@@ -11,7 +11,7 @@ public enum CheckBoxesEnum {
     CheckBoxesEnum(int index) {
         this.index = index;
     }
-
+    // TODO Please try to find out how improve it
     public static String getTextValue(int index) {
         switch (index) {
             case 0:

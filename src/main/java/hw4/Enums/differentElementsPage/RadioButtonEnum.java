@@ -1,4 +1,5 @@
 package hw4.Enums.differentElementsPage;
+// TODO please check package name with Java Code Convention
 
 public enum RadioButtonEnum {
     GOLD(0),
@@ -11,7 +12,7 @@ public enum RadioButtonEnum {
     RadioButtonEnum(int index) {
         this.index = index;
     }
-
+    // TODO Please try to find out how improve it
     public static String getTextValue(int index) {
         switch (index) {
             case 0:

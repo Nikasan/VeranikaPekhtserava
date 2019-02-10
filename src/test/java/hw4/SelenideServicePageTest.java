@@ -21,8 +21,10 @@ public class SelenideServicePageTest extends SelenideBase {
     @BeforeMethod
     public void beforeMethod() {
         //1 Open test site by URL
+        // TODO Selenide could be added to static imports
         Selenide.open(HomePageInfo.HOME_PAGE_URL.toString());
         servicePage = page(HomePage.class);
+        // TODO Why you decide init page here?
         dePage = page(DifferentElementPage.class);
 
         //2 Assert Browser title
@@ -65,34 +67,44 @@ public class SelenideServicePageTest extends SelenideBase {
 
         //11-12 Select checkboxes and  Assert that for each checkbox there is an individual log row and value is corresponded
         // to the status of checkbox. 
+        // TODO Why you send index here?
         dePage.selectCheckboxElement(CheckBoxesEnum.WATER.index);
         dePage.verifyCheckBoxLogRow(CheckBoxesEnum.WATER.index,true);
 
+        // TODO Why you send index here?
         dePage.selectCheckboxElement(CheckBoxesEnum.EARTH.index);
         dePage.verifyCheckBoxLogRow(CheckBoxesEnum.EARTH.index, true);
 
+        // TODO Why you send index here?
         dePage.selectCheckboxElement(CheckBoxesEnum.WIND.index);
         dePage.verifyCheckBoxLogRow(CheckBoxesEnum.WIND.index, true);
 
+        // TODO Why you send index here?
         dePage.selectCheckboxElement(CheckBoxesEnum.FIRE.index);
         dePage.verifyCheckBoxLogRow(CheckBoxesEnum.FIRE.index, true);
 
         //13 Select radio SELEN
+        // TODO Why you send index here?
         dePage.selectRadioElement(RadioButtonEnum.SELEN.index);
 
         //14 Assert that for radiobutton SELEN there is a log row and value is corresponded to the status of radiobutton. 
+        // TODO Why you send index here?
         dePage.verifyRadioButtonLogRow(RadioButtonEnum.SELEN.index);
 
         //15 Select YELLOW in dropdown
+        // TODO Why you send index here?
         dePage.selectDropDownElement(SelectEnum.YELLOW.index);
 
         //16 Assert that for dropdown YELLOW there is a log row and value is corresponded to the selected value. 
+        // TODO Why you send index here?
         dePage.verifyDropDownElementLogRow(SelectEnum.YELLOW.index);
 
         //17-18  Unselect and assert checkboxes + Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 
+        // TODO Why you send index here?
         dePage.selectCheckboxElement(CheckBoxesEnum.WATER.index);
         dePage.verifyCheckBoxLogRow(CheckBoxesEnum.WATER.index, false);
 
+        // TODO Why you send index here?
         dePage.selectCheckboxElement(CheckBoxesEnum.WIND.index);
         dePage.verifyCheckBoxLogRow(CheckBoxesEnum.WIND.index, false);
     }

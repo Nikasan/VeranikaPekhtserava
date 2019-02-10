@@ -6,6 +6,7 @@ import java.util.List;
 public enum ServiceTabOptions {
     SUPPORT("Support", "https://epam.github.io/JDI/support.html"),
     DATES("Dates", "https://epam.github.io/JDI/dates.html"),
+    // TODO Please check enum code style
     COMPLEXTABLE("Complex Table", "https://epam.github.io/JDI/complex-table.html"),
     SIMPLETBLE("Simple Table", "https://epam.github.io/JDI/simple-table.html"),
     USER_TABLE("User Table", "https://epam.github.io/JDI/user-table.html"),
@@ -25,8 +26,8 @@ public enum ServiceTabOptions {
         this.name = name;
         this.url = url;
     }
-
-
+// TODO Extra empty line
+// TODO Extra empty line
 
     public static List<String> getLinkNames() {
         List<String> container = new ArrayList<>();

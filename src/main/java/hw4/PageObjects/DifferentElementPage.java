@@ -11,6 +11,7 @@ import hw4.Enums.differentElementsPage.SelectEnum;
 import org.openqa.selenium.support.FindBy;
 
 public class DifferentElementPage {
+    // TODO If it is constant should be 'static final'
     private int checkBoxesAmount = 4;
     private int radioButtonsAmount = 4;
     private int buttonsAmount = 2;
@@ -39,6 +40,7 @@ public class DifferentElementPage {
     @FindBy(css = ".main-content-hg .colors select option")
     private ElementsCollection dropDownElements;
 
+    // TODO This method is unused
     public void open() {
         Selenide.open(ServiceTabOptions.DIFFERENTELEMENTS.url);
     }
@@ -78,12 +80,12 @@ public class DifferentElementPage {
     public void selectRadioElement(int index) {
         radioButtonsBoard.get(index).click();
     }
-
+// TODO Extra empty line
 
     public void verifyRadioButtonLogRow(int index) {
         log.get(0).shouldHave(Condition.text("metal: value changed to " + RadioButtonEnum.getTextValue(index)));
     }
-
+// TODO Extra empty line
 
     public void selectDropDownElement(int index) {
         dropDownEntryMode.click();
