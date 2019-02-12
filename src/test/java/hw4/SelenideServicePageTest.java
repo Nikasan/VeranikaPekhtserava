@@ -14,7 +14,9 @@ import static hw4.enums.different_elements_page.RadioButtons.SELEN;
 import static hw4.enums.different_elements_page.Colors.YELLOW;
 
 public class SelenideServicePageTest extends SelenideBase {
+    // TODO Why it is called servicePage
     private HomePage servicePage;
+    // TODO dePage is not good name for variable
     private DifferentElementPage dePage;
 
     @BeforeMethod
@@ -64,6 +66,7 @@ public class SelenideServicePageTest extends SelenideBase {
 
         //11-12 Select checkboxes and  Assert that for each checkbox there is an individual log row and value is corresponded
         // to the status of checkbox. 
+        // TODO Why you using index for click to element and for assertion use enum?
         dePage.selectCheckboxElement(0); //I use index for click to checkbox from collection of elements
         dePage.verifyCheckBoxLogRow(WATER, true);
 
@@ -77,6 +80,7 @@ public class SelenideServicePageTest extends SelenideBase {
         dePage.verifyCheckBoxLogRow(FIRE, true);
 
         //13 Select radio SELEN
+        // TODO Why you using index for click to element and for assertion use enum?
         dePage.selectRadioElement(3);
 
         //14 Assert that for radiobutton SELEN there is a log row and value is corresponded to the status of radiobutton. 
@@ -89,6 +93,7 @@ public class SelenideServicePageTest extends SelenideBase {
         dePage.verifyDropDownElementLogRow(YELLOW);
 
         //17-18  Unselect and assert checkboxes + Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 
+        // TODO Why you using index for click to element and for assertion use enum?
         dePage.selectCheckboxElement(0);
         dePage.verifyCheckBoxLogRow(WATER, false);
 
