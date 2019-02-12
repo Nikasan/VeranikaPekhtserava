@@ -1,14 +1,9 @@
 package hw5;
 
-import com.codeborne.selenide.Selenide;
-import hw5.Enums.HomePageInfo;
-import hw5.Enums.differentElementsPage.CheckBoxesEnum;
-import hw5.Enums.differentElementsPage.RadioButtonEnum;
-import hw5.Enums.differentElementsPage.SelectEnum;
-import hw5.PageObjects.DifferentElementPage;
-import hw5.PageObjects.HomePage;
 import hw5.Listener.SimpleScreenshotTestListener;
-import hw5.base.SelenideBasehw5;
+import hw5.base.SelenideBase;
+import hw5.page_objects.DifferentElementPage;
+import hw5.page_objects.HomePage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
@@ -16,21 +11,24 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Selenide.close;
-import static com.codeborne.selenide.Selenide.page;
-import static hw5.Enums.User.USER;
+import static com.codeborne.selenide.Selenide.*;
+import static hw5.enums.HomePageInfo.HOME_PAGE_URL;
+import static hw5.enums.User.USER;
+import static hw5.enums.different_elements_page.CheckBoxes.*;
+import static hw5.enums.different_elements_page.Colors.YELLOW;
+import static hw5.enums.different_elements_page.RadioButtons.SELEN;
 
 @Listeners(SimpleScreenshotTestListener.class)
-public class SelenideServicePageFailedTest extends SelenideBasehw5 {
+public class SelenideServicePageFailedTest extends SelenideBase {
     private HomePage servicePage;
     private DifferentElementPage dePage;
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         //1 Open test site by URL
-        Selenide.open(HomePageInfo.HOME_PAGE_URL.toString());
+        open(HOME_PAGE_URL.value);
         servicePage = page(HomePage.class);
-        dePage = page(DifferentElementPage.class);
+        dePage = page(DifferentElementPage.class);// I init page here because I can check right page before test methods. In parallel run it can save time. And you suggest do it before.
 
         //2 Assert Browser title
         servicePage.checkBrowserTitle();
@@ -54,13 +52,13 @@ public class SelenideServicePageFailedTest extends SelenideBasehw5 {
         //5 Click on "Service" subcategory in the header and check that drop down contains options
         servicePage.checkNavBarServiceOptions();
 
-         //6 Click on Service subcategory in the left section and check that drop down contains options
+        //6 Click on Service subcategory in the left section and check that drop down contains options
         servicePage.checkSideBarServiceOptions();
 
-        // 7 Open through the header menu Service -> Different Elements Page
-         servicePage.goToDifferentElementsPage();
+        //7 Open through the header menu Service -> Different Elements Page
+        servicePage.goToDifferentElementsPage();
 
-         //8 Check interface on Different elements page, it contains all needed elements
+        //8 Check interface on Different elements page, it contains all needed elements
         dePage.checkNumberOfButtonsElements();
         dePage.checkNumberOfCheckBoxElements();
         dePage.checkDropDownMenuIsPresent();
@@ -74,35 +72,41 @@ public class SelenideServicePageFailedTest extends SelenideBasehw5 {
 
         //11-12 Select checkboxes and  Assert that for each checkbox there is an individual log row and value is corresponded
         // to the status of checkbox. 
-        dePage.selectCheckboxElement(CheckBoxesEnum.WATER.index);
-        dePage.verifyCheckBoxLogRow(CheckBoxesEnum.EARTH.index,true); //should failed
+        dePage.selectCheckboxElement(0); //I use index for click to checkbox from collection of elements
+        dePage.verifyCheckBoxLogRow(WATER, true);
 
-        dePage.selectCheckboxElement(CheckBoxesEnum.EARTH.index);
-        dePage.verifyCheckBoxLogRow(CheckBoxesEnum.EARTH.index, true);
+        dePage.selectCheckboxElement(1);
+        dePage.verifyCheckBoxLogRow(EARTH, true);
 
-        dePage.selectCheckboxElement(CheckBoxesEnum.WIND.index);
-        dePage.verifyCheckBoxLogRow(CheckBoxesEnum.WIND.index, true);
+        dePage.selectCheckboxElement(2);
+        dePage.verifyCheckBoxLogRow(WIND, true);
 
-        dePage.selectCheckboxElement(CheckBoxesEnum.FIRE.index);
-        dePage.verifyCheckBoxLogRow(CheckBoxesEnum.FIRE.index, true);
+        dePage.selectCheckboxElement(3);
+        dePage.verifyCheckBoxLogRow(FIRE, true);
 
         //13 Select radio SELEN
-        dePage.selectRadioElement(RadioButtonEnum.SELEN.index);
+        dePage.selectRadioElement(3);
 
         //14 Assert that for radiobutton SELEN there is a log row and value is corresponded to the status of radiobutton. 
-        dePage.verifyRadioButtonLogRow(RadioButtonEnum.SELEN.index);
+        dePage.verifyRadioButtonLogRow(SELEN);
 
         //15 Select YELLOW in dropdown
-        dePage.selectDropDownElement(SelectEnum.YELLOW.index);
+        dePage.selectDropDownElement(YELLOW);
 
         //16 Assert that for dropdown YELLOW there is a log row and value is corresponded to the selected value. 
-        dePage.verifyDropDownElementLogRow(SelectEnum.YELLOW.index);
+        dePage.verifyDropDownElementLogRow(YELLOW);
 
         //17-18  Unselect and assert checkboxes + Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 
-        dePage.selectCheckboxElement(CheckBoxesEnum.WATER.index);
-        dePage.verifyCheckBoxLogRow(CheckBoxesEnum.WATER.index, false);
+        dePage.selectCheckboxElement(0);
+        dePage.verifyCheckBoxLogRow(WATER, false);
 
-        dePage.selectCheckboxElement(CheckBoxesEnum.WIND.index);
-        dePage.verifyCheckBoxLogRow(CheckBoxesEnum.WIND.index, false);
+        dePage.selectCheckboxElement(1);
+        dePage.verifyCheckBoxLogRow(EARTH, false);
+
+        dePage.selectCheckboxElement(2);
+        dePage.verifyCheckBoxLogRow(WIND, false);
+
+        dePage.selectCheckboxElement(3);
+        dePage.verifyCheckBoxLogRow(FIRE, false);
     }
 }

@@ -1,31 +1,29 @@
 package hw5;
 
-import com.codeborne.selenide.Selenide;
-
-import hw5.Enums.HomePageInfo;
 import hw5.Listener.SimpleScreenshotTestListener;
-import hw5.PageObjects.DatesPage;
-import hw5.PageObjects.HomePage;
-import hw5.base.SelenideBasehw5;
+import hw5.base.SelenideBase;
+import hw5.page_objects.DatesPage;
+import hw5.page_objects.HomePage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import static com.codeborne.selenide.Selenide.close;
-import static com.codeborne.selenide.Selenide.page;
-import static hw5.Enums.User.USER;
+
+import static com.codeborne.selenide.Selenide.*;
+import static hw5.enums.HomePageInfo.HOME_PAGE_URL;
+import static hw5.enums.User.USER;
 
 @Listeners(SimpleScreenshotTestListener.class)
-public class SelenideDatesPageTest extends SelenideBasehw5 {
+public class SelenideDatesPageTest extends SelenideBase {
     private HomePage servicePage;
     private DatesPage datesPage;
 
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         //1 Open test site by URL
-        Selenide.open(HomePageInfo.HOME_PAGE_URL.toString());
+        open(HOME_PAGE_URL.value);
         servicePage = page(HomePage.class);
         datesPage = page(DatesPage.class);
 
