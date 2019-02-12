@@ -88,6 +88,7 @@ public class HomePage {
         checkElementsTexts(serviceTabLeftMenu, ServiceTabOptions.getLinkNames());
     }
 
+    // TODO Is it possible parametrized this method?
     public void goToDifferentElementsPage() {
         serviceDropDownMenuHeader.click();
         serviceDifferentElemetsPageLink.click();
