@@ -1,17 +1,15 @@
 package hw3;
 
-import hw3.Enums.HomePageInfo;
-import hw3.Enums.NavigationBarItems;
-import hw3.Enums.User;
+import hw3.enums.BenefitsTextList;
+import hw3.enums.HomePageInfo;
+import hw3.enums.NavigationBarItems;
+import hw3.enums.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
-
 import java.util.List;
-import static hw3.Enums.BenefitsTextList.*;
-import static hw3.Enums.HomePageInfo.HOME_PAGE_URL;
+import static hw3.enums.HomePageInfo.HOME_PAGE_URL;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -58,7 +56,7 @@ public class HomePage {
     @FindBy(css = "[name='jdi-text']")
     private WebElement jdiText;
 
-   @FindBy(css = "[id='iframe']")
+    @FindBy(css = "[id='iframe']")
     private WebElement iframe;
 
     @FindBy(css = "[class='text-center']")
@@ -82,11 +80,11 @@ public class HomePage {
     }
 
     public void open() {
-        driver.get(HOME_PAGE_URL.toString());
+        driver.get(HOME_PAGE_URL.value);
     }
 
-    public  void  checkTitle(HomePageInfo title) {
-        assertEquals(driver.getTitle(), title.toString());
+    public void checkTitle(HomePageInfo title) {
+        assertEquals(driver.getTitle(), title.value);
     }
 
     public void login(User user) {
@@ -96,7 +94,7 @@ public class HomePage {
         submitButton.click();
     }
 
-    public void checkUserIsLoggined(User user) {
+    public void checkUserIsLogged(User user) {
         assertEquals(userName.getText(), user.name);
     }
 
@@ -110,29 +108,25 @@ public class HomePage {
     public void checkItemsTexts(NavigationBarItems[] itemsText) {
         assertTrue(items.isDisplayed());
         for (NavigationBarItems item : itemsText) {
-            assertTrue(items.getText().contains(item.toString()));
+            assertTrue(items.getText().contains(item.item));
         }
     }
 
-    public void checkTextUnderIcons() {
-        Assert.assertEquals(benefitText.size(), 4);
-
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.col-sm-3:nth-child(1)")).getText(),FIRST_ICON_TEXT.toString());
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.col-sm-3:nth-child(2)")).getText(),SECOND_ICON_TEXT.toString());
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.col-sm-3:nth-child(3)")).getText(),THIRD_ICON_TEXT.toString());
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.col-sm-3:nth-child(4)")).getText(),FOURTH_ICON_TEXT.toString());
-        }
-
+public void checkFourTextsUnderBenefitImages(BenefitsTextList[] expected) {
+    assertEquals(benefitText.size(), 4);
+    for (int i = 0; i < expected.length; i++) {
+        assertEquals(benefitText.get(i).getText(), expected[i].toString());
+    }
+}
 
     public void checkTextOnMainHeaders(HomePageInfo titleOnMainHeaders, HomePageInfo textOnMainHeaders) {
         assertTrue(mainTitle.isDisplayed());
-        assertEquals(titleOnMainHeaders.toString(), mainTitle.getText());
+        assertEquals(titleOnMainHeaders.value, mainTitle.getText());
         assertTrue(jdiText.isDisplayed());
-        assertEquals(textOnMainHeaders.toString(), jdiText.getText());
+        assertEquals(textOnMainHeaders.value, jdiText.getText());
     }
 
-    // TODO Java code convetion
-    public void IframeIsDisplayed() {
+    public void iframeIsDisplayed() {
         assertTrue(iframe.isDisplayed());
     }
 
@@ -143,20 +137,18 @@ public class HomePage {
 
     public void checkTextOfSubHeader(HomePageInfo textOfTheSubHeader) {
         assertTrue(textCenter.isDisplayed());
-        assertEquals(textCenter.getText(), textOfTheSubHeader.toString());
+        assertEquals(textCenter.getText(), textOfTheSubHeader.value);
     }
 
     public void checkJdiGit(HomePageInfo jdiGithubUrl) {
-        assertEquals(blank.getAttribute("href"), jdiGithubUrl.toString());
+        assertEquals(blank.getAttribute("href"), jdiGithubUrl.value);
     }
 
-    // TODO Java code convetion
-    public void LeftSectionIsDisplayed() {
+    public void leftSectionIsDisplayed() {
         assertTrue(leftSection.isDisplayed());
     }
 
-    // TODO Java code convetion
-    public void FooterIsDisplayed() {
+    public void footerIsDisplayed() {
         assertTrue(footer.isDisplayed());
     }
 }

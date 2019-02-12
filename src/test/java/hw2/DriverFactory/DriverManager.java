@@ -2,7 +2,7 @@ package hw2.DriverFactory;
 
 public class DriverManager {
 
-    private static ThreadLocal<DriverClass> driver = new ThreadLocal<>();
+    private static ThreadLocal<DriverClass> driver = new ThreadLocal<DriverClass>();
 
     public static DriverClass getDriver() {
         return driver.get();

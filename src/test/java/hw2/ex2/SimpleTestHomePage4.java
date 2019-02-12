@@ -77,7 +77,7 @@ public class SimpleTestHomePage4 extends SeleniumBase {
 
         //8 Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<WebElement> benefitIconTxt = DriverManager.getDriver().getRemoteWebDriver().findElements(By.cssSelector(".benefit-txt"));
-        List<String> underIconsTextsActual = new LinkedList<>();
+        List<String> underIconsTextsActual = new LinkedList<String>();
         for (WebElement element : benefitIconTxt) {
             underIconsTextsActual.add(element.getText());
         }

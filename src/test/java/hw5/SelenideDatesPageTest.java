@@ -1,23 +1,31 @@
-package hw4;
+package hw5;
 
-import hw4.page_objects.DatesPage;
-import hw4.page_objects.HomePage;
-import hw4.base.SelenideBase;
+import com.codeborne.selenide.Selenide;
+
+import hw5.Enums.HomePageInfo;
+import hw5.Listener.SimpleScreenshotTestListener;
+import hw5.PageObjects.DatesPage;
+import hw5.PageObjects.HomePage;
+import hw5.base.SelenideBasehw5;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import static com.codeborne.selenide.Selenide.*;
-import static hw4.enums.HomePageInfo.HOME_PAGE_URL;
-import static hw4.enums.User.USER;
+import static com.codeborne.selenide.Selenide.close;
+import static com.codeborne.selenide.Selenide.page;
+import static hw5.Enums.User.USER;
 
-public class SelenideDatesPageTest extends SelenideBase {
+@Listeners(SimpleScreenshotTestListener.class)
+public class SelenideDatesPageTest extends SelenideBasehw5 {
     private HomePage servicePage;
     private DatesPage datesPage;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void beforeMethod() {
         //1 Open test site by URL
-        open(HOME_PAGE_URL.value);
+        Selenide.open(HomePageInfo.HOME_PAGE_URL.toString());
         servicePage = page(HomePage.class);
         datesPage = page(DatesPage.class);
 
@@ -25,11 +33,13 @@ public class SelenideDatesPageTest extends SelenideBase {
         servicePage.checkBrowserTitle();
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void afterMethod() {
         close();
     }
 
+    @Story(value = "HW5")
+    @Feature(value = "Date page test")
     @Test
     public void simpleTest() {
         //3.Perform login
