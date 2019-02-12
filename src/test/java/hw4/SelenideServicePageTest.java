@@ -14,20 +14,19 @@ import static hw4.enums.different_elements_page.RadioButtons.SELEN;
 import static hw4.enums.different_elements_page.Colors.YELLOW;
 
 public class SelenideServicePageTest extends SelenideBase {
-    // TODO Why it is called servicePage
-    private HomePage servicePage;
-    // TODO dePage is not good name for variable
-    private DifferentElementPage dePage;
+
+    private HomePage homePage;
+    private DifferentElementPage differentElementPage;
 
     @BeforeMethod
     public void beforeMethod() {
         //1 Open test site by URL
         open(HOME_PAGE_URL.value);
-        servicePage = page(HomePage.class);
-        dePage = page(DifferentElementPage.class);// I init page here because I can check right page before test methods. In parallel run it can save time. And you suggest do it before.
+        homePage = page(HomePage.class);
+        differentElementPage = page(DifferentElementPage.class);
 
         //2 Assert Browser title
-        servicePage.checkBrowserTitle();
+        homePage.checkBrowserTitle();
     }
 
     @AfterMethod
@@ -38,72 +37,69 @@ public class SelenideServicePageTest extends SelenideBase {
     @Test
     public void simpleTest() {
         //3 Perform login
-        servicePage.signIn(USER);
+        homePage.signIn(USER);
 
         //4 Assert User name in the left-top side of screen that user is loggined
-        servicePage.checkUserIsLogged(USER);
+        homePage.checkUserIsLogged(USER);
 
         //5 Click on "Service" subcategory in the header and check that drop down contains options
-        servicePage.checkNavBarServiceOptions();
+        homePage.checkNavBarServiceOptions();
 
         //6 Click on Service subcategory in the left section and check that drop down contains options
-        servicePage.checkSideBarServiceOptions();
+        homePage.checkSideBarServiceOptions();
 
         //7 Open through the header menu Service -> Different Elements Page
-        servicePage.goToDifferentElementsPage();
+        homePage.openServiceOptions(6);
 
         //8 Check interface on Different elements page, it contains all needed elements
-        dePage.checkNumberOfButtonsElements();
-        dePage.checkNumberOfCheckBoxElements();
-        dePage.checkDropDownMenuIsPresent();
-        dePage.checkNumberOfRadioButtonElements();
+        differentElementPage.checkNumberOfButtonsElements();
+        differentElementPage.checkNumberOfCheckBoxElements();
+        differentElementPage.checkDropDownMenuIsPresent();
+        differentElementPage.checkNumberOfRadioButtonElements();
 
         //9 Assert that there is Right Section
-        dePage.checkFixPaneIsVisible();
+        differentElementPage.checkFixPaneIsVisible();
 
         //10 Assert that there is Left Section
-        dePage.checkNavBarIsVisible();
+        differentElementPage.checkNavBarIsVisible();
 
         //11-12 Select checkboxes and  Assert that for each checkbox there is an individual log row and value is corresponded
         // to the status of checkbox. 
-        // TODO Why you using index for click to element and for assertion use enum?
-        dePage.selectCheckboxElement(0); //I use index for click to checkbox from collection of elements
-        dePage.verifyCheckBoxLogRow(WATER, true);
+        differentElementPage.selectCheckboxElement(WATER); //I use index for click to checkbox from collection of elements
+        differentElementPage.verifyCheckBoxLogRow(WATER, true);
 
-        dePage.selectCheckboxElement(1);
-        dePage.verifyCheckBoxLogRow(EARTH, true);
+        differentElementPage.selectCheckboxElement(EARTH);
+        differentElementPage.verifyCheckBoxLogRow(EARTH, true);
 
-        dePage.selectCheckboxElement(2);
-        dePage.verifyCheckBoxLogRow(WIND, true);
+        differentElementPage.selectCheckboxElement(WIND);
+        differentElementPage.verifyCheckBoxLogRow(WIND, true);
 
-        dePage.selectCheckboxElement(3);
-        dePage.verifyCheckBoxLogRow(FIRE, true);
+        differentElementPage.selectCheckboxElement(FIRE);
+        differentElementPage.verifyCheckBoxLogRow(FIRE, true);
 
         //13 Select radio SELEN
-        // TODO Why you using index for click to element and for assertion use enum?
-        dePage.selectRadioElement(3);
+        differentElementPage.selectRadioElement(SELEN);
 
         //14 Assert that for radiobutton SELEN there is a log row and value is corresponded to the status of radiobutton. 
-        dePage.verifyRadioButtonLogRow(SELEN);
+        differentElementPage.verifyRadioButtonLogRow(SELEN);
 
         //15 Select YELLOW in dropdown
-        dePage.selectDropDownElement(YELLOW);
+        differentElementPage.selectDropDownElement(YELLOW);
 
         //16 Assert that for dropdown YELLOW there is a log row and value is corresponded to the selected value. 
-        dePage.verifyDropDownElementLogRow(YELLOW);
+        differentElementPage.verifyDropDownElementLogRow(YELLOW);
 
         //17-18  Unselect and assert checkboxes + Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox. 
-        // TODO Why you using index for click to element and for assertion use enum?
-        dePage.selectCheckboxElement(0);
-        dePage.verifyCheckBoxLogRow(WATER, false);
+        differentElementPage.selectCheckboxElement(WATER);
+        differentElementPage.verifyCheckBoxLogRow(WATER, false);
 
-        dePage.selectCheckboxElement(1);
-        dePage.verifyCheckBoxLogRow(EARTH, false);
+        differentElementPage.selectCheckboxElement(EARTH);
+        differentElementPage.verifyCheckBoxLogRow(EARTH, false);
 
-        dePage.selectCheckboxElement(2);
-        dePage.verifyCheckBoxLogRow(WIND, false);
+        differentElementPage.selectCheckboxElement(WIND);
+        differentElementPage.verifyCheckBoxLogRow(WIND, false);
 
-        dePage.selectCheckboxElement(3);
-        dePage.verifyCheckBoxLogRow(FIRE, false);
+        differentElementPage.selectCheckboxElement(FIRE);
+        differentElementPage.verifyCheckBoxLogRow(FIRE, false);
     }
 }

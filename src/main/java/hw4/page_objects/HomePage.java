@@ -39,9 +39,6 @@ public class HomePage {
     @FindBy(css = ".main-title")
     private SelenideElement headerText;
 
-    @FindBy(css = "ul[class = 'dropdown-menu'] > li > a[href = 'different-elements.html']")
-    private SelenideElement serviceDifferentElemetsPageLink;
-
     @FindBy(css = ".uui-header .nav li.dropdown")
     private SelenideElement serviceDropDownMenuHeader;
 
@@ -49,7 +46,7 @@ public class HomePage {
     private SelenideElement serviceDropDownMenuLeft;
 
     @FindBy(css = "ul.dropdown-menu > li")
-    private ElementsCollection serviceTabHeader;
+    private ElementsCollection serviceOptions;
 
     @FindBy(css = "ul[class='sub'] > li")
     private ElementsCollection serviceTabLeftMenu;
@@ -72,7 +69,7 @@ public class HomePage {
 
     public void checkNavBarServiceOptions() {
         serviceDropDownMenuHeader.click();
-        checkElementsTexts(serviceTabHeader, ServiceTabOptions.getLinkNames());
+        checkElementsTexts(serviceOptions, ServiceTabOptions.getLinkNames());
     }
 
     private void checkElementsTexts(ElementsCollection elements, List<String> texts) {
@@ -88,9 +85,9 @@ public class HomePage {
         checkElementsTexts(serviceTabLeftMenu, ServiceTabOptions.getLinkNames());
     }
 
-    // TODO Is it possible parametrized this method?
-    public void goToDifferentElementsPage() {
+    //  Is it possible parametrized this method? DONE
+    public void openServiceOptions(int index) {
         serviceDropDownMenuHeader.click();
-        serviceDifferentElemetsPageLink.click();
+        serviceOptions.get(index).click();
     }
 }

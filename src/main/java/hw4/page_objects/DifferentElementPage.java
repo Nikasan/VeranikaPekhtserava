@@ -62,16 +62,18 @@ public class DifferentElementPage {
         navBar.shouldBe(Condition.visible);
     }
 
-    public void selectCheckboxElement(int index) {
-        checkBoxesBoard.get(index).click();
+   public void selectCheckboxElement(CheckBoxes checkBoxes){
+        checkBoxesBoard.get(checkBoxes.ordinal()).click();
+        checkBoxesBoard.get(checkBoxes.ordinal()).isSelected();
+   }
+
+    public void verifyCheckBoxLogRow(CheckBoxes checkBoxes, boolean action) {
+        log.get(0).shouldHave(Condition.text(checkBoxes.checkBox + ": condition changed to " + action));
     }
 
-    public void verifyCheckBoxLogRow(CheckBoxes checkBox, boolean action) {
-        log.get(0).shouldHave(Condition.text(checkBox.checkBox + ": condition changed to " + action));
-    }
-
-    public void selectRadioElement(int index) {
-        radioButtonsBoard.get(index).click();
+    public void selectRadioElement(RadioButtons radioButton){
+        radioButtonsBoard.get(radioButton.ordinal()).click();
+        radioButtonsBoard.get(radioButton.ordinal()).isSelected();
     }
 
     public void verifyRadioButtonLogRow(RadioButtons radioButton) {

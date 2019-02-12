@@ -6,23 +6,27 @@ import hw4.base.SelenideBase;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.Arrays;
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.*;
 import static hw4.enums.HomePageInfo.HOME_PAGE_URL;
 import static hw4.enums.User.USER;
 
 public class SelenideDatesPageTest extends SelenideBase {
-    private HomePage servicePage;
+    private HomePage homePage;
     private DatesPage datesPage;
 
     @BeforeMethod
     public void beforeMethod() {
         //1 Open test site by URL
         open(HOME_PAGE_URL.value);
-        servicePage = page(HomePage.class);
+        homePage = page(HomePage.class);
         datesPage = page(DatesPage.class);
 
         //2.Assert Browser title
-        servicePage.checkBrowserTitle();
+        homePage.checkBrowserTitle();
     }
 
     @AfterMethod
@@ -33,36 +37,23 @@ public class SelenideDatesPageTest extends SelenideBase {
     @Test
     public void simpleTest() {
         //3.Perform login
-        servicePage.signIn(USER);
+        homePage.signIn(USER);
 
         //4.Assert User name in the left-top side of screen that user is loggined
-        servicePage.checkUserIsLogged(USER);
+        homePage.checkUserIsLogged(USER);
 
-        //5.Open through the header menu Service -> Different Elements Page
-        datesPage.open();
+        //5.Open through the header menu Service -> Dates Page
+        homePage.openServiceOptions(1);
 
-        //6.Using drag-and-drop set Range sliders. left sliders - the most left position, right slider - the most rigth position
-        datesPage.moveSliders(0,100);
+        //6-13.Assert that for "From" and "To" sliders there are logs rows with corresponding values
 
-        //7.Assert that for "From" and "To" sliders there are logs rows with corresponding values
-        datesPage.checkLog("0","100");
-
-        //8.Using drag-and-drop set Range sliders. left sliders - the most left position, right slider - the most left position and assert the log row
-         datesPage.moveSliders(0,0);
-
-         //9. Assert log row
-        datesPage.checkLog("0","0");
-
-        //10. Using drag-and-drop set Range sliders. left sliders - the most rigth position, right slider - the most right position and assert the log row
-        datesPage.moveSliders(100, 100);
-
-        //11. Assert log row
-        datesPage.checkLog("100","100");
-
-        //12.Using drag-and-drop set Range sliders.
-        datesPage.moveSliders(30, 70);
-
-        //13.Assert that for "From" and "To" sliders there are logs rows with corresponding values
-        datesPage.checkLog("30","70");
+        List<Integer> directionFrom = Arrays.asList(0, 100, 30);
+        List<Integer> directionTo = Arrays.asList(0, 100,  70);
+        for (int i = 0; i < 3; i++) {
+            Integer left = directionFrom.get(i);
+            Integer right = directionTo.get(i);
+            datesPage.moveSliderCheckLog(0, left);
+            datesPage.moveSliderCheckLog(1, right);
+        }
     }
 }
