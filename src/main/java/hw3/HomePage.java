@@ -39,7 +39,7 @@ public class HomePage {
     private WebElement iconPractise;
 
     @FindBy(css = "[class='icons-benefit icon-custom']")
-    private WebElement iconСustom;
+    private WebElement iconCustom;
 
     @FindBy(css = "[class='icons-benefit icon-multi']")
     private WebElement iconMulti;
@@ -102,7 +102,7 @@ public class HomePage {
         assertTrue(iconBase.isDisplayed());
         assertTrue(iconMulti.isDisplayed());
         assertTrue(iconPractise.isDisplayed());
-        assertTrue(iconСustom.isDisplayed());
+        assertTrue(iconCustom.isDisplayed());
     }
 
     public void checkItemsTexts(NavigationBarItems[] itemsText) {
