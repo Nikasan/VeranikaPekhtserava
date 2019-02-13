@@ -65,7 +65,7 @@ public class SelenideServicePageTest extends SelenideBase {
 
         //11-12 Select checkboxes and  Assert that for each checkbox there is an individual log row and value is corresponded
         // to the status of checkbox. 
-        differentElementPage.selectCheckboxElement(WATER); //I use index for click to checkbox from collection of elements
+        differentElementPage.selectCheckboxElement(WATER);
         differentElementPage.verifyCheckBoxLogRow(WATER, true);
 
         differentElementPage.selectCheckboxElement(EARTH);

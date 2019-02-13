@@ -46,7 +46,6 @@ public class SelenideDatesPageTest extends SelenideBase {
         homePage.openServiceOptions(1);
 
         //6-13.Assert that for "From" and "To" sliders there are logs rows with corresponding values
-
         List<Integer> directionFrom = Arrays.asList(0, 100, 30);
         List<Integer> directionTo = Arrays.asList(0, 100,  70);
         for (int i = 0; i < 3; i++) {
