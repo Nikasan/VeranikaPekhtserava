@@ -70,19 +70,21 @@ public class DifferentElementPage {
         navBar.shouldBe(Condition.visible);
     }
 
-    @Step("Select check-box {index}")
-    public void selectCheckboxElement(int index) {
-        checkBoxesBoard.get(index).click();
+    @Step("Select check-box {checkBoxes}")
+    public void selectCheckboxElement(CheckBoxes checkBoxes){
+        checkBoxesBoard.get(checkBoxes.ordinal()).click();
+        checkBoxesBoard.get(checkBoxes.ordinal()).isSelected();
     }
 
-    @Step("Check log row for check-box {checkBox}")
-    public void verifyCheckBoxLogRow(CheckBoxes checkBox, boolean action) {
-        log.get(0).shouldHave(Condition.text(checkBox.checkBox + ": condition changed to " + action));
+    @Step("Check log row for check-box {checkBoxes}")
+    public void verifyCheckBoxLogRow(CheckBoxes checkBoxes, boolean action) {
+        log.get(0).shouldHave(Condition.text(checkBoxes.checkBox + ": condition changed to " + action));
     }
 
-    @Step("Select metal radio button {index}")
-    public void selectRadioElement(int index) {
-        radioButtonsBoard.get(index).click();
+    @Step("Select metal radio button {radioButton}")
+    public void selectRadioElement(RadioButtons radioButton){
+        radioButtonsBoard.get(radioButton.ordinal()).click();
+        radioButtonsBoard.get(radioButton.ordinal()).isSelected();
     }
 
     @Step("Check log row for {radioButton} ")

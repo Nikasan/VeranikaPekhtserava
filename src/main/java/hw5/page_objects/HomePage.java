@@ -11,7 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.title;
-import static hw4.enums.HomePageInfo.HOME_PAGE_TITLE;
+import static hw5.enums.HomePageInfo.HOME_PAGE_TITLE;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class HomePage {
@@ -40,9 +40,6 @@ public class HomePage {
     @FindBy(css = ".main-title")
     private SelenideElement headerText;
 
-    @FindBy(css = "ul[class = 'dropdown-menu'] > li > a[href = 'different-elements.html']")
-    private SelenideElement serviceDifferentElemetsPageLink;
-
     @FindBy(css = ".uui-header .nav li.dropdown")
     private SelenideElement serviceDropDownMenuHeader;
 
@@ -50,10 +47,11 @@ public class HomePage {
     private SelenideElement serviceDropDownMenuLeft;
 
     @FindBy(css = "ul.dropdown-menu > li")
-    private ElementsCollection serviceTabHeader;
+    private ElementsCollection serviceOptions;
 
     @FindBy(css = "ul[class='sub'] > li")
     private ElementsCollection serviceTabLeftMenu;
+
 
     @Step("Check browser title")
     public void checkBrowserTitle() {
@@ -77,7 +75,7 @@ public class HomePage {
     @Step("Click on 'Service' subcategory in the header and check that drop down contains options")
     public void checkNavBarServiceOptions() {
         serviceDropDownMenuHeader.click();
-        checkElementsTexts(serviceTabHeader, ServiceTabOptions.getLinkNames());
+        checkElementsTexts(serviceOptions, ServiceTabOptions.getLinkNames());
     }
 
     private void checkElementsTexts(ElementsCollection elements, List<String> texts) {
@@ -87,6 +85,7 @@ public class HomePage {
             elements.get(i).shouldHave(Condition.exactText(texts.get(i)));
         }
     }
+
     @Step("Click on 'Service' subcategory in the  left section and check that drop down contains options")
     public void checkSideBarServiceOptions() {
         serviceDropDownMenuLeft.click();
@@ -94,8 +93,8 @@ public class HomePage {
     }
 
     @Step("Open through the header menu Service -> Different Elements Page")
-    public void goToDifferentElementsPage() {
+    public void openServiceOptions(int index) {
         serviceDropDownMenuHeader.click();
-        serviceDifferentElemetsPageLink.click();
+        serviceOptions.get(index).click();
     }
 }
