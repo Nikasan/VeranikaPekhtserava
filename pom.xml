@@ -138,7 +138,7 @@
                 <version>2.9</version>
                 <configuration>
                     <reportVersion>2.7.0</reportVersion>
-                    <resultsDirectory>allure-results</resultsDirectory>
+                    <resultsDirectory>target/allure-results</resultsDirectory>
                 </configuration>
             </plugin>
 
