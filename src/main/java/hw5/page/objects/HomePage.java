@@ -1,4 +1,4 @@
-package hw5.page_objects;
+package hw5.page.objects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
@@ -58,7 +58,7 @@ public class HomePage {
         assertEquals(title(), HOME_PAGE_TITLE.value);
     }
 
-    @Step("Perform login by user {login} and password {password}")
+    @Step("Perform login by user {user}")
     public void signIn(User user) {
 
         loginIcon.click();
@@ -67,7 +67,7 @@ public class HomePage {
         submitButton.click();
     }
 
-    @Step("Check that user {name} logged")
+    @Step("Check that user {user} logged")
     public void checkUserIsLogged(User user) {
         userName.shouldHave(Condition.exactText(user.name));
     }

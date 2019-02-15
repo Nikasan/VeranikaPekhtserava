@@ -1,9 +1,9 @@
 package hw5;
 
-import hw5.Listener.SimpleScreenshotTestListener;
+import hw5.listener.SimpleScreenshotTestListener;
 import hw5.base.SelenideBase;
-import hw5.page_objects.DatesPage;
-import hw5.page_objects.HomePage;
+import hw5.page.objects.DatesPage;
+import hw5.page.objects.HomePage;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.testng.annotations.AfterMethod;

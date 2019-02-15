@@ -1,14 +1,11 @@
-package hw5.Listener;
+package hw5.listener;
 
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriverException;
-import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
-
-import java.io.File;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
