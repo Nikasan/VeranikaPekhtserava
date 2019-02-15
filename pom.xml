@@ -119,7 +119,7 @@
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
-                            <value>target/allure-results</value>
+                            <value>C:\Users\Veranika_Labkova\.jenkins\workspace\hw5\target\allure-results</value>
                         </property>
                     </systemProperties>
                 </configuration>
