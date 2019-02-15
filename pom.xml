@@ -116,12 +116,12 @@
                     <systemPropertyVariables>
                         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
                     </systemPropertyVariables>
-                    <systemProperties>
-                        <property>
-                            <name>allure.results.directory</name>
-                            <value>C:\Users\Veranika_Labkova\.jenkins\workspace\hw5\target\allure-results</value>
-                        </property>
-                    </systemProperties>
+                    <!--<systemProperties>-->
+                        <!--&lt;!&ndash;property>-->
+                            <!--<name>allure.results.directory</name>-->
+                            <!--<value>C:\Users\Veranika_Labkova\.jenkins\workspace\hw5\target\allure-results</value>-->
+                        <!--</property!&ndash;&gt;-->
+                    <!--</systemProperties>-->
                 </configuration>
                 <dependencies>
                     <dependency>
