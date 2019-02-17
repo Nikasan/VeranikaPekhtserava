@@ -63,6 +63,7 @@ public class DifferentElementPage {
     }
 
    public void selectCheckboxElement(CheckBoxes checkBoxes){
+        // TODO Will be it work if order of checkboxes on the page is changed?
         checkBoxesBoard.get(checkBoxes.ordinal()).click();
         checkBoxesBoard.get(checkBoxes.ordinal()).isSelected();
    }
@@ -72,6 +73,7 @@ public class DifferentElementPage {
     }
 
     public void selectRadioElement(RadioButtons radioButton){
+        // TODO Will be it work if order of radio elements on the page is changed?
         radioButtonsBoard.get(radioButton.ordinal()).click();
         radioButtonsBoard.get(radioButton.ordinal()).isSelected();
     }
@@ -82,6 +84,7 @@ public class DifferentElementPage {
 
     public void selectDropDownElement(Colors expectedColor) {
         dropDownEntryMode.click();
+        // TODO For dropdown selenide has separate method
         dropDownElements.get(expectedColor.ordinal()).click();
         dropDownElements.get(expectedColor.ordinal()).shouldBe(checked);
     }

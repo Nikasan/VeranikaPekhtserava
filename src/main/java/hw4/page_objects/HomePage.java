@@ -75,6 +75,7 @@ public class HomePage {
     private void checkElementsTexts(ElementsCollection elements, List<String> texts) {
         int textsCount = texts.size();
         elements.shouldHaveSize(textsCount);
+        // TODO This is could be simplified.
         for (int i = 0; i < textsCount; i++) {
             elements.get(i).shouldHave(Condition.exactText(texts.get(i)));
         }
@@ -85,7 +86,7 @@ public class HomePage {
         checkElementsTexts(serviceTabLeftMenu, ServiceTabOptions.getLinkNames());
     }
 
-    //  Is it possible parametrized this method? DONE
+    // TODO Why you use index instead of enum?
     public void openServiceOptions(int index) {
         serviceDropDownMenuHeader.click();
         serviceOptions.get(index).click();
