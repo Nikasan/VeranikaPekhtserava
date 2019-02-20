@@ -15,7 +15,7 @@ public class HomeSteps {
     private HomePage homePage = page(HomePage.class);
 
     @Then("^Browser title should be 'HOME_PAGE_TITLE'$")
-    public void browserTitleShouldBeHOME_PAGE_TITLE() {
+    public void browserTitleShouldBeHomePage() {
         homePage.checkBrowserTitle();
     }
 
@@ -25,12 +25,12 @@ public class HomeSteps {
     }
 
     @Then("^Username should be '([^\"]*)'$")
-    public void usernameShouldBe(User expectedName) {
+    public void usernameAssertion(User expectedName) {
         homePage.checkUserIsLogged(expectedName);
     }
 
     @And("^Home Page should have 4 benefit icons$")
-    public void interfaceShouldHaveIcons() {
+    public void interfaceIcons() {
         homePage.checkFourthImages();
     }
 

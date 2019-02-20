@@ -9,8 +9,9 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static hw6.ex2.enums.HomePageInfo.HOME_PAGE_URL;
 
 public class NavigationSteps {
+
     @Given("^I am on 'HOME_PAGE'$")
-    public void iAmOnHOME_PAGE() {
+    public void goHomePage() {
         open(HOME_PAGE_URL.value);
         getWebDriver().manage().window().maximize();
     }
