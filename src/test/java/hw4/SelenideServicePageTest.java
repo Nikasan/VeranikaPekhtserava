@@ -1,13 +1,14 @@
 package hw4;
 
-import hw4.page_objects.DifferentElementPage;
-import hw4.page_objects.HomePage;
+import hw4.page.objects.DifferentElementPage;
+import hw4.page.objects.HomePage;
 import hw4.base.SelenideBase;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 import static hw4.enums.HomePageInfo.HOME_PAGE_URL;
+import static hw4.enums.ServiceTabOptions.DIFFERENTELEMENTS;
 import static hw4.enums.User.USER;
 import static hw4.enums.different_elements_page.CheckBoxes.*;
 import static hw4.enums.different_elements_page.RadioButtons.SELEN;
@@ -49,7 +50,7 @@ public class SelenideServicePageTest extends SelenideBase {
         homePage.checkSideBarServiceOptions();
 
         //7 Open through the header menu Service -> Different Elements Page
-        homePage.openServiceOptions(6);
+        homePage.openServiceOptions(DIFFERENTELEMENTS);
 
         //8 Check interface on Different elements page, it contains all needed elements
         differentElementPage.checkNumberOfButtonsElements();

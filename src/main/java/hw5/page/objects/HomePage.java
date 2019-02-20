@@ -52,7 +52,6 @@ public class HomePage {
     @FindBy(css = "ul[class='sub'] > li")
     private ElementsCollection serviceTabLeftMenu;
 
-
     @Step("Check browser title")
     public void checkBrowserTitle() {
         assertEquals(title(), HOME_PAGE_TITLE.value);

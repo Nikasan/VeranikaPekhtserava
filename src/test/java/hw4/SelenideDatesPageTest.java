@@ -1,7 +1,7 @@
 package hw4;
 
-import hw4.page_objects.DatesPage;
-import hw4.page_objects.HomePage;
+import hw4.page.objects.DatesPage;
+import hw4.page.objects.HomePage;
 import hw4.base.SelenideBase;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +12,7 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
 import static hw4.enums.HomePageInfo.HOME_PAGE_URL;
+import static hw4.enums.ServiceTabOptions.DATES;
 import static hw4.enums.User.USER;
 
 public class SelenideDatesPageTest extends SelenideBase {
@@ -43,7 +44,7 @@ public class SelenideDatesPageTest extends SelenideBase {
         homePage.checkUserIsLogged(USER);
 
         //5.Open through the header menu Service -> Dates Page
-        homePage.openServiceOptions(1);
+        homePage.openServiceOptions(DATES);
 
         //6-13.Assert that for "From" and "To" sliders there are logs rows with corresponding values
         List<Integer> directionFrom = Arrays.asList(0, 100, 30);

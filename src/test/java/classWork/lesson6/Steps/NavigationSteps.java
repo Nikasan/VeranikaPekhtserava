@@ -3,12 +3,13 @@ package classWork.lesson6.Steps;
 import cucumber.api.java.en.Given;
 
 import static com.codeborne.selenide.Selenide.open;
+import static hw6.ex1.enums.HomePageInfo.HOME_PAGE_URL;
 
 public class NavigationSteps {
-    public final static String URL = "https://epam.github.io/JDI/index.html";
+
 
     @Given("^I open EPAM JDI site$")
     public void iOpenEPAMJDISite() {
-            open(URL);
+            open(HOME_PAGE_URL.value);
         }
     }

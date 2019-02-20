@@ -1,15 +1,18 @@
-package hw4.page_objects;
+package hw4.page.objects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import hw4.enums.ServiceTabOptions;
 import hw4.enums.User;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
+import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.title;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static hw4.enums.HomePageInfo.HOME_PAGE_TITLE;
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -54,6 +57,7 @@ public class HomePage {
     public void checkBrowserTitle() {
         assertEquals(title(), HOME_PAGE_TITLE.value);
     }
+    Actions actions = new Actions(getWebDriver());
 
     public void signIn(User user) {
 
@@ -86,9 +90,7 @@ public class HomePage {
         checkElementsTexts(serviceTabLeftMenu, ServiceTabOptions.getLinkNames());
     }
 
-    // TODO Why you use index instead of enum?
-    public void openServiceOptions(int index) {
-        serviceDropDownMenuHeader.click();
-        serviceOptions.get(index).click();
-    }
+   public void openServiceOptions(ServiceTabOptions option) {
+        open(option.url);
+}
 }

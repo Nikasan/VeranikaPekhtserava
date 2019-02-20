@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="HomeWork6" verbose="1">
+    <test name="hw6">
+        <packages>
+            <package name="hw6"/>
+        </packages>
+    </test>
+</suite>

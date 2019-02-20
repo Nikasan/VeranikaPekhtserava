@@ -4,6 +4,7 @@
     <test name="hw5">
         <packages>
             <package name="hw5"/>
+            <package name="hw4"/>
         </packages>
     </test>
 </suite>
