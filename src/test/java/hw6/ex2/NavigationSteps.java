@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static hw6.ex2.enums.HomePageInfo.HOME_PAGE_URL;
 
-public class SetUp {
+public class NavigationSteps {
     @Given("^I am on 'HOME_PAGE'$")
     public void iAmOnHOME_PAGE() {
         open(HOME_PAGE_URL.value);
