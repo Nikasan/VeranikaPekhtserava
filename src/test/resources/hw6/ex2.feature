@@ -8,6 +8,7 @@
       When I click on Service button in Header
       And I click on 'USERTABLE' button in Service dropdown
       Then 'USER_TABLE' page is opened
+      # TODO displayed IN Users Table on User Table Page
       And '6' NumberType Dropdowns are displayed on Users Table on User Table Page
       And '6' User names are displayed on Users Table on User Table Page
       And '6' Description images are displayed on Users Table on User Table Page

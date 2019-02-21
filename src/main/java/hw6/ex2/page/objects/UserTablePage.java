@@ -103,6 +103,7 @@ public class UserTablePage {
     }
 
     public void checkDropdownHasValues(List<String> values){
+        // TODO Why do you decide do not use collection compare assert?
         ElementsCollection statuses = typeDropdowns.get(0).$$("option");
         for (int i = 0; i < values.size(); i++) {
             statuses.get(i).shouldHave(text(values.get(i)));

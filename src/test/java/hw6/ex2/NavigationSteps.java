@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static hw6.ex2.enums.HomePageInfo.HOME_PAGE_URL;
 
+// TODO Why do you have to impl of NavigationSteps?
 public class NavigationSteps {
 
     @Given("^I am on 'HOME_PAGE'$")

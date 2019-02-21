@@ -7,6 +7,7 @@ import hw6.ex2.enums.User;
 import hw6.ex2.page.objects.HomePage;
 import static com.codeborne.selenide.Selenide.page;
 
+// TODO Why do you have to impl of HomeSteps?
 public class HomeSteps {
 
     private HomePage homePage = page(HomePage.class);

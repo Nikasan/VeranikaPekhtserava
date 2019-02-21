@@ -12,34 +12,49 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.page;
 
+// TODO What is the principle of split test step definition?
 public class DiffSteps {
+    // TODO Please try to think how to passing on pages between steps
     private DifferentElementPage diffElemPage = page(DifferentElementPage.class);
 
+    // TODO Please thinks about better step description
+    // TODO Which forces of nature should be present on th page
     @Then("^Interface on Different elements page contains 4 checkboxes with forces of nature$")
     public void interfaceShouldContainCheckboxes() {
         diffElemPage.checkNumberOfCheckBoxElements();
     }
 
+    // TODO Please thinks about better step description
+    // TODO Which metals should be present on th page
+    // TODO What does 'And' means? Is it 'When' or 'Given' or 'Then'
     @And("^Interface on Different elements page contains 4 radio buttons with metals$")
     public void interfaceShouldContainRadioButtons() {
         diffElemPage.checkNumberOfRadioButtonElements();
     }
 
+    // TODO Please thinks about better step description
+    // TODO Which metals should be present on th page
+    // TODO What does 'And' means? Is it 'When' or 'Given' or 'Then'
     @And("^Interface on Different elements page contains color choice dropdown$")
     public void interfaceShouldContainColorDropdown() {
         diffElemPage.checkDropDownMenuIsPresent();
     }
 
+    // TODO Please thinks about better step description
+    // TODO Which buttons should be present on th page
+    // TODO What does 'And' means? Is it 'When' or 'Given' or 'Then'
     @And("^Interface on Different elements page contains 2 buttons$")
     public void interfaceShouldHaveButtons() {
         diffElemPage.checkNumberOfButtonsElements();
     }
 
+    // TODO What does 'And' means? Is it 'When' or 'Given' or 'Then'
     @And("^Different elements page has a Right section$")
     public void differentElementsPageShouldHaveRightSection() {
         diffElemPage.checkFixPaneIsVisible();
     }
 
+    // TODO What does 'And' means? Is it 'When' or 'Given' or 'Then'
     @And("^Different elements page has a Left section$")
     public void differentElementsPageShouldHaveLeftSection() {
         diffElemPage.checkNavBarIsVisible();
@@ -96,11 +111,13 @@ public class DiffSteps {
         diffElemPage.verifyCheckBoxLogRow(elements, action);
     }
 
+    // TODO This step could be combine into one with "I select '([^"]*)' checkbox on Different elements page"
     @When("^I unselect '([^\"]*)' checkbox on Different elements page$")
     public void unSelectWind(List<CheckBoxes> elements) {
             diffElemPage.selectCheckboxElement(elements);
     }
 
+    // TODO What is the purpose of current step?
     @Then("checkbox = WIND and action = false")
     public void forWINDCheckboxThereIsALogRowWithCorrespondingStatusFalse(CheckBoxes elements, boolean action) {
         diffElemPage.verifyCheckBoxLogRow(elements, action);
