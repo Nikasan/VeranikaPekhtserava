@@ -50,11 +50,13 @@ public class UserTablePageSteps {
         userTablePage.checkUserTableContainsElements(dataTable);
     }
 
+    // TODO Is it possible parametrized step?
     @When("^I select 'vip' checkbox for '([^\"]*)'$")
     public void selectVipCheckbox(TableNames name) {
         userTablePage.selectVipBox(name);
     }
 
+    // TODO I think you have already had method which check log
     @Then("^1 log row has '([^\"]*)' text in log section$")
     public void topLogRowsStatus(String message) {
         userTablePage.checkLogForVipBox(message);
