@@ -1,13 +1,15 @@
 package hw8.enums;
 
-public enum Odds {
-    ONE (1),
-    THREE(3),
-    FIVE(5),
-    SEVEN(7);
+import lombok.AllArgsConstructor;
 
-    public final int odds;
-    Odds(int odds) {
-        this.odds = odds;
-    }
+@AllArgsConstructor
+public enum Odds {
+    ONE ("1",1),
+    THREE("3",3),
+    FIVE("5",5),
+    SEVEN("7",7);
+
+    public String odds;
+    public Integer value;
+
 }

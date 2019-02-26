@@ -8,8 +8,11 @@
     <artifactId>VeranikaPekhtserava</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <dependencies>
+    <properties>
+            <domain>http://www.epam.com</domain>
+    </properties>
 
+    <dependencies>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -86,7 +89,7 @@
         <dependency>
             <groupId>com.epam.jdi</groupId>
             <artifactId>jdi-light-html</artifactId>
-            <version>LATEST</version>
+            <version>1.0.39</version>
         </dependency>
 
         <dependency>
@@ -152,6 +155,15 @@
             </plugin>
 
         </plugins>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
     <reporting>
@@ -164,4 +176,19 @@
             </plugin>
         </plugins>
     </reporting>
+
+    <profiles>
+        <profile>
+            <id>DEV</id>
+            <properties>
+                <domain>http://www.dev.epam.com</domain>
+            </properties>
+        </profile>
+        <profile>
+            <id>QA</id>
+            <properties>
+                <domain>http://www.qa.epam.com</domain>
+            </properties>
+        </profile>
+    </profiles>
 </project>

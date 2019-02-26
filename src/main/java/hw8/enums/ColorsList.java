@@ -1,8 +1,12 @@
 package hw8.enums;
 
-/**
- * Created by Roman_Iovlev on 9/21/2015.
- */
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public enum ColorsList {
-    Colors, Red, Green, Blue, Yellow
+    Red("Red"),
+    Green("Green"),
+    Blue("Blue"),
+    Yellow("Yellow");
+    public final String color;
 }

@@ -1,8 +1,12 @@
 package hw8.enums;
 
-/**
- * Created by Maksim_Palchevskii on 10/6/2015.
- */
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public enum Vegetables {
-    Cucumber, Tomato, Vegetables, Onion
+    Cucumber("Cucumber"),
+    Tomato("Tomato"),
+    Vegetabl("Vegetables"),
+    Onion("Onion");
+    public final String veg;
 }

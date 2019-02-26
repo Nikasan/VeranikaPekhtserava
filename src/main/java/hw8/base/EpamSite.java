@@ -6,7 +6,7 @@ import hw8.pages.IndexPageJdi;
 import hw8.pages.MetalAndColorsPage;
 
 @JSite("https://epam.github.io/JDI/")
-public class JDISite {
+public class EpamSite {
 
     @Url("index.html")
     public static IndexPageJdi indexPageJdi;
