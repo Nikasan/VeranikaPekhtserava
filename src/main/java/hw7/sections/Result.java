@@ -25,7 +25,7 @@ public class Result extends Section {
         }
 
         assertTrue(resultContent.contains("Summary: " + checkSummaryBock(params)));
-        assertTrue(resultContent.contains("Elements: " + String.join(", ", params.getNatureElements())));
+        assertTrue(resultContent.contains("Elements: " + String.join(", ", params.getNature())));
         assertTrue(resultContent.contains("Color: " + params.getColor()));
         assertTrue(resultContent.contains("Metal: " + params.getMetal()));
         assertTrue(resultContent.contains("Vegetables: " + String.join(", ", params.getVegetables())));

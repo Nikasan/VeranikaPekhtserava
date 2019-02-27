@@ -51,7 +51,7 @@ public class MetalAndColorsForm extends Form {
 
         summaryblock.calculate.click();
 
-        params.getNatureElements()
+        params.getNature()
                 .forEach(s -> natureElements.select(s));
 
         colors.select(params.getColor());
