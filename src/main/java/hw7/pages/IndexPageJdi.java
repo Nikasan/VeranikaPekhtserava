@@ -1,13 +1,12 @@
-package hw8.pages;
+package hw7.pages;
 
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.ui.html.common.Icon;
 
-import hw8.entities.User;
-import hw8.forms.LoginForm;
+import hw7.forms.LoginForm;
 import org.openqa.selenium.support.FindBy;
 
-import static hw8.entities.User.PETER;
+import static hw7.entities.User.PETER;
 
 public class IndexPageJdi extends WebPage {
     LoginForm loginForm;
@@ -15,7 +14,7 @@ public class IndexPageJdi extends WebPage {
     @FindBy(css = "[id='user-icon']")
     private Icon loginIcon;
 
-    public void login(User user) {
+    public void login() {
         loginIcon.click();
         loginForm.loginAs(PETER);
     }

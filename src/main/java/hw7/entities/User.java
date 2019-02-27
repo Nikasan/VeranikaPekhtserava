@@ -1,4 +1,4 @@
-package hw8.entities;
+package hw7.entities;
 
 import lombok.AllArgsConstructor;
 

@@ -1,12 +1,12 @@
-package hw8.forms;
+package hw7.forms;
 
 import com.epam.jdi.light.elements.complex.Droplist;
 import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
 import com.epam.jdi.light.elements.pageobjects.annotations.objects.JDropdown;
-import hw8.entities.MetalsColors;
-import hw8.sections.Summary;
+import hw7.entities.MetalsColors;
+import hw7.sections.Summary;
 
 import java.util.Map;
 import java.util.Set;

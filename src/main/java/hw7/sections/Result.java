@@ -1,8 +1,8 @@
-package hw8.sections;
+package hw7.sections;
 
 import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.composite.Section;
-import hw8.entities.MetalsColors;
+import hw7.entities.MetalsColors;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;

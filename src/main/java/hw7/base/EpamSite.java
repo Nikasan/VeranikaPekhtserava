@@ -1,9 +1,9 @@
-package hw8.base;
+package hw7.base;
 
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
-import hw8.pages.IndexPageJdi;
-import hw8.pages.MetalAndColorsPage;
+import hw7.pages.IndexPageJdi;
+import hw7.pages.MetalAndColorsPage;
 
 @JSite("https://epam.github.io/JDI/")
 public class EpamSite {

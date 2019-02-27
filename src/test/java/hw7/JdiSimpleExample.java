@@ -1,21 +1,16 @@
-package hw8;
-
+package hw7;
 
 import com.epam.jdi.light.driver.WebDriverFactory;
 import com.epam.jdi.light.ui.html.PageFactory;
-import hw8.base.EpamSite;
-import hw8.entities.MetalsColors;
+import hw7.base.EpamSite;
+import hw7.entities.MetalsColors;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-
-import static hw8.base.EpamSite.indexPageJdi;
-import static hw8.base.EpamSite.metalsColorsPage;
-import static hw8.entities.User.PETER;
-
+import static hw7.base.EpamSite.indexPageJdi;
+import static hw7.base.EpamSite.metalsColorsPage;
 
 public class JdiSimpleExample {
-    MetalsColors parameters = new MetalsColors();
 
     @BeforeSuite
     public void beforeSuite() {
@@ -24,11 +19,13 @@ public class JdiSimpleExample {
 
     @Test
     public void simpleJdiTest() {
+
         indexPageJdi.open();
-        indexPageJdi.login(PETER);
+        indexPageJdi.login();
         metalsColorsPage.open();
         metalsColorsPage.shouldBeOpened();
 
+        MetalsColors parameters = new MetalsColors();
         metalsColorsPage.fillForm(parameters);
         metalsColorsPage.submitForm();
         metalsColorsPage.checkForm(parameters);

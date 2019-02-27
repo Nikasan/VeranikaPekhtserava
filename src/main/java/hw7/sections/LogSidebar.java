@@ -1,4 +1,4 @@
-package hw8.sections;
+package hw7.sections;
 
 import com.epam.jdi.light.elements.composite.Section;
 import com.epam.jdi.light.ui.html.base.TextAreaElement;

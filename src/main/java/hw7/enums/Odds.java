@@ -1,4 +1,4 @@
-package hw8.enums;
+package hw7.enums;
 
 import lombok.AllArgsConstructor;
 
