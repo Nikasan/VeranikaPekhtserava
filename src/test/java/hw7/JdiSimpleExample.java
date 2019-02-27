@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import static hw7.base.EpamSite.indexPageJdi;
 import static hw7.base.EpamSite.metalsColorsPage;
+import static hw7.enums.Navigation.METALS_COLORS;
 
 public class JdiSimpleExample {
 
@@ -22,8 +23,7 @@ public class JdiSimpleExample {
 
         indexPageJdi.open();
         indexPageJdi.login();
-        metalsColorsPage.open();
-        metalsColorsPage.shouldBeOpened();
+        indexPageJdi.openMenuItem(METALS_COLORS);
 
         MetalsColors parameters = new MetalsColors();
         metalsColorsPage.fillForm(parameters);
