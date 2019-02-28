@@ -16,15 +16,15 @@ public class MetalAndColorsPage extends WebPage {
     MetalAndColorsForm form;
     Result result;
 
-    public void fillForm(MetalsColors parameters) {
-        form.fill(parameters);
+    public void fillForm(MetalsColors metalsColors) {
+        form.fill(metalsColors);
     }
 
     public void submitForm() {
         submit.click();
     }
 
-    public void checkForm(MetalsColors parameters) {
-        result.checkLogPanel(parameters);
+    public void checkForm(MetalsColors metalsColors) {
+        result.checkLogPanel(metalsColors);
     }
 }
