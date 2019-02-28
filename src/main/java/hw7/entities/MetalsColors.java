@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static hw7.enums.Vegetables.Cucumber;
 import static hw7.enums.Vegetables.Tomato;
