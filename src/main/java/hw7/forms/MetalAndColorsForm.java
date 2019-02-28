@@ -8,10 +8,7 @@ import com.epam.jdi.light.elements.pageobjects.annotations.objects.JDropdown;
 import hw7.entities.MetalsColors;
 import hw7.sections.Summary;
 
-import java.util.Map;
-import java.util.Set;
-
-public class MetalAndColorsForm extends Form {
+public class MetalAndColorsForm extends Form<MetalsColors> {
 
     @JDropdown(root = "div[ui=dropdown]",
             value = ".filter-option",
@@ -33,33 +30,19 @@ public class MetalAndColorsForm extends Form {
 
     @FindBy(css = "#elements-checklist > p")
     public WebList natureElements;
-    Summary summaryblock;
 
-    public void fill(MetalsColors params) {
+    Summary summaryBlock;
 
-        Set<Map.Entry<String, Integer>> odd = params.getOdd().entrySet();
-        for (Map.Entry<String, Integer> entry : odd) {
-            String key = entry.getKey();
-            summaryblock.odds.select(key);
-        }
-
-        Set<Map.Entry<String, Integer>> even = params.getEven().entrySet();
-        for (Map.Entry<String, Integer> entry : even) {
-            String key = entry.getKey();
-            summaryblock.even.select(key);
-        }
-
-        summaryblock.calculate.click();
-
-        params.getNature()
+    public void fill(MetalsColors metalsColors) {
+        summaryBlock.odds.select(metalsColors.getOdd());
+        summaryBlock.even.select(metalsColors.getEven());
+        summaryBlock.calculate.click();
+        metalsColors.getNature()
                 .forEach(s -> natureElements.select(s));
-
-        colors.select(params.getColor());
-
-        metal.select(params.getMetal());
-
+        colors.select(metalsColors.getColor());
+        metal.select(metalsColors.getMetal());
         vegetables.select(vegetables.getSelected());
-        params.getVegetables()
+        metalsColors.getVegetables()
                 .forEach(s -> vegetables.select(s));
     }
 }

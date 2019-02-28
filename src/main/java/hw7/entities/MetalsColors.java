@@ -7,38 +7,32 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static hw7.enums.Vegetables.Cucumber;
 import static hw7.enums.Vegetables.Tomato;
 
-@AllArgsConstructor
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 public class MetalsColors {
 
-    List<String> vegetables = Stream.of(Cucumber.name(), Tomato.name()).collect(Collectors.toList());
-    List<String> nature = Stream.of(Nature.Water.name(), Nature.Fire.name()).collect(Collectors.toList());
-    String metal = Metals.Selen.name();
-    String color = ColorsList.Yellow.name();
+    public static MetalsColors DEFAULT = new MetalsColors(
+            Arrays.asList(Cucumber.name(), Tomato.name()),
+            Arrays.asList(Nature.Water.name(), Nature.Fire.name()),
+            Metals.Selen.name(),
+            ColorsList.Yellow.name(),
+            Odds.THREE.value,
+            Even.EIGHT.value
+    );
 
-    Map<String,Integer> odd = new HashMap<String,Integer>(){
-        {
-            put(Odds.THREE.odds, Odds.THREE.value);
-        }
-
-    };
-    Map<String,Integer> even = new HashMap<String,Integer>(){
-        {
-            put(Even.EIGHT.even, Even.EIGHT.val);
-        }
-
-    };
-
-
-
-}
+    List<String> vegetables;
+    List<String> nature;
+    String metal;
+    String color;
+    Integer odd;
+    Integer even;
+};

@@ -8,6 +8,6 @@ public enum Even {
     SIX("6",6),
     EIGHT("8",8);
     public final String even;
-    public final Integer val;
+    public final Integer value;
 
 }

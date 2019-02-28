@@ -25,10 +25,9 @@ public class JdiSimpleExample {
         indexPageJdi.login();
         indexPageJdi.openMenuItem(METALS_COLORS);
 
-        MetalsColors parameters = new MetalsColors();
-        metalsColorsPage.fillForm(parameters);
+        metalsColorsPage.fillForm(MetalsColors.DEFAULT);
         metalsColorsPage.submitForm();
-        metalsColorsPage.checkForm(parameters);
+        metalsColorsPage.checkForm(MetalsColors.DEFAULT);
     }
 
     @AfterSuite
