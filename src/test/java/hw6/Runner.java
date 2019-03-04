@@ -8,7 +8,7 @@ import static org.openqa.selenium.remote.BrowserType.CHROME;
 
 @CucumberOptions(
         features = {"classpath:hw6"}, tags = {"@DifferentElementsInterface, @UserTableInterface"},
-        glue = {"classpath:hw6.ex1", "classpath:hw6.ex2"}
+        glue = {"classpath:hw6.steps"}
 )
 
 public class Runner extends AbstractTestNGCucumberTests {

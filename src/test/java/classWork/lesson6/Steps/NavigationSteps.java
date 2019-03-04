@@ -7,9 +7,9 @@ import static hw6.ex1.enums.HomePageInfo.HOME_PAGE_URL;
 
 public class NavigationSteps {
 
-
-    @Given("^I open EPAM JDI site$")
-    public void iOpenEPAMJDISite() {
-            open(HOME_PAGE_URL.value);
-        }
-    }
+//
+//    @Given("^I open EPAM JDI site$")
+//    public void iOpenEPAMJDISite() {
+//            open(HOME_PAGE_URL.value);
+//        }
+   }

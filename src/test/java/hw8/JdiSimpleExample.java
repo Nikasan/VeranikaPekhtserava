@@ -5,6 +5,8 @@ import com.epam.jdi.light.ui.html.PageFactory;
 import hw8.base.EpamSite;
 import hw8.entities.MetalsColors;
 import org.testng.annotations.*;
+
+import java.io.FileNotFoundException;
 import java.util.Map;
 
 import static hw8.base.EpamSite.indexPageJdi;
@@ -32,7 +34,7 @@ public class JdiSimpleExample {
 
     }
     @DataProvider
-    public Object[][] getDataFromLoader() {
+    public Object[][] getDataFromLoader()throws FileNotFoundException {
         Map<String, MetalsColors> map = Parser.getData();
 
         Object[] keys = map.keySet().toArray();
