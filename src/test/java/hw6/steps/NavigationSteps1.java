@@ -10,6 +10,7 @@ import static hw6.ex3.enums.HomePageInfo.HOME_PAGE_URL;
 
 public class NavigationSteps1 {
     private HomePage homePage;
+
     @Given("^I open EPAM JDI site$")
     public void iOpenEPAMJDISite() {
         open(HOME_PAGE_URL.value);

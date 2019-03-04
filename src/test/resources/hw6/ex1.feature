@@ -6,10 +6,10 @@ Feature: Different Elements Page Test
     Then Browser title should be 'HOME_PAGE_TITLE'
     When I login as 'USER'
     Then Username should be 'USER'
-#    And Home Page should have 4 benefit icons
-#    And Home Page should have 4 texts under icons
-#    And Home Page should have title 'Home Page' and description 'LOREM IPSUM..'
-#    When I click on Service subcategory in the header
+    Then Home Page should have 4 benefit icons
+    Then Home Page should have 4 texts under benefit icons
+    Then Home Page should have title 'MAIN_HEADER_TITLE' and description 'MAIN_HEADER_TEXT'
+    #  When I click on 'SERVICE' subcategory in the header
 #    Then Service dropdown menu in header displays following options
 #    When I click on Service subcategory in the left section
 #    Then Service dropdown in left section displays following options
