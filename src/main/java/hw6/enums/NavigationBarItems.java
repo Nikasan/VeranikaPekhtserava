@@ -1,4 +1,4 @@
-package hw6.ex3.enums;
+package hw6.enums;
 
 public enum NavigationBarItems {
     HOME("HOME"),

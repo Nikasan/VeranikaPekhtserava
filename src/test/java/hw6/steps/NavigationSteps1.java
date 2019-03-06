@@ -2,11 +2,11 @@ package hw6.steps;
 
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
-import hw6.ex3.PageObjects.HomePage;
+import hw6.PageObjects.HomePage;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static hw6.ex3.enums.HomePageInfo.HOME_PAGE_URL;
+import static hw6.enums.HomePageInfo.HOME_PAGE_URL;
 
 public class NavigationSteps1 {
     private HomePage homePage;

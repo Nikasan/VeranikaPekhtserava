@@ -1,4 +1,4 @@
-package hw6.ex2.enums;
+package hw6.enums;
 
 public enum TableNames {
     ROMAN("Roman"),

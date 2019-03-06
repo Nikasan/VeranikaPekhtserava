@@ -1,10 +1,10 @@
-package hw6.ex3.PageObjects;
+package hw6.PageObjects;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import cucumber.api.DataTable;
-import hw6.ex3.enums.TableNames;
-import hw6.ex3.enums.UserTablePageInfo;
+import hw6.enums.TableNames;
+import hw6.enums.UserTablePageInfo;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
@@ -102,8 +102,7 @@ public class UserTablePage {
         usernames.findBy(text(name.toString())).$x("../../td/select").click();
     }
 
-    public void checkDropdownHasValues(List<String> values){
-        // TODO Why do you decide do not use collection compare assert?
+    public void checkUserRoleDropdownHasValues(List<String> values){
         ElementsCollection statuses = typeDropdowns.get(0).$$("option");
         for (int i = 0; i < values.size(); i++) {
             statuses.get(i).shouldHave(text(values.get(i)));

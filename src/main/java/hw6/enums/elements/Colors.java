@@ -1,4 +1,4 @@
-package hw6.ex3.enums.elements;
+package hw6.enums.elements;
 
 public enum Colors {
     RED("Red"),

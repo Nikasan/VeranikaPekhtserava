@@ -1,4 +1,4 @@
-package hw6.ex3.enums.elements;
+package hw6.enums.elements;
 
 public enum CheckBoxes {
     WATER("Water"),
@@ -10,5 +10,10 @@ public enum CheckBoxes {
 
     CheckBoxes(String checkBox) {
         this.checkBox = checkBox;
+    }
+
+    @Override
+    public String toString() {
+        return checkBox;
     }
 }

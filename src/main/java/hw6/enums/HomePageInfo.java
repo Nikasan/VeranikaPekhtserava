@@ -1,4 +1,4 @@
-package hw6.ex2.enums;
+package hw6.enums;
 
 public enum HomePageInfo {
     HOME_PAGE_URL("https://epam.github.io/JDI/index.html"),

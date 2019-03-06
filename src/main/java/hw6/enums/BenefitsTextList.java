@@ -1,4 +1,4 @@
-package hw6.ex3.enums;
+package hw6.enums;
 
 public enum BenefitsTextList {
     FIRST_ICON_TEXT("To include good practices\nand ideas from successful\nEPAM project"),

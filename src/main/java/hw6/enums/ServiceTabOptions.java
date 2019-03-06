@@ -1,4 +1,4 @@
-package hw6.ex1.enums;
+package hw6.enums;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ public enum ServiceTabOptions {
     SIMPLETABLE("Simple Table", "https://epam.github.io/JDI/simple-table.html"),
     USERTABLE("User Table", "https://epam.github.io/JDI/user-table.html"),
     TABLESANDPAGES("Table with pages", "https://epam.github.io/JDI/table-pages.html"),
-    DIFFERENTELEMENTS("Different elements", "https://epam.github.io/JDI/different-elements.html"),
+    DIFFERENT_ELEMENTS("Different elements", "https://epam.github.io/JDI/different-elements.html"),
     PERFORMANCE("Performance", "https://epam.github.io/JDI/performance.html");
 
     public final String name;
@@ -18,7 +18,7 @@ public enum ServiceTabOptions {
 
     @Override
     public String toString() {
-        return url;
+        return name;
     }
 
     ServiceTabOptions(String name, String url) {

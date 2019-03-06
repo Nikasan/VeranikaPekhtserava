@@ -1,4 +1,4 @@
-package hw6.ex3.enums.elements;
+package hw6.enums.elements;
 
 public enum RadioButtons {
     GOLD("Gold"),
@@ -10,5 +10,10 @@ public enum RadioButtons {
 
     RadioButtons(String radioButton) {
         this.radioButton = radioButton;
+    }
+
+    @Override
+    public String toString() {
+        return radioButton;
     }
     }
