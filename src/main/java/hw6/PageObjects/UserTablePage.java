@@ -107,5 +107,15 @@ public class UserTablePage {
         for (int i = 0; i < values.size(); i++) {
             statuses.get(i).shouldHave(text(values.get(i)));
         }
+
+//        for(String value : values){
+//            statuses.contains(value);
+//        }
+        System.out.println(statuses.toString());
+
+//       Additional method
+//        for(String value : values){
+//            typeDropdowns.contains(value);
+//        }
     }
 }
